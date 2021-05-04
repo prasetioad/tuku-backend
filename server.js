@@ -1,6 +1,5 @@
+// Env
 require("dotenv").config();
-
-// Port
 const port = process.env.PORT;
 const host = process.env.HOST;
 
@@ -27,7 +26,7 @@ app.use(
 app.use(cors());
 app.use(morgan("dev"));
 
-app.use("/v1", router);
+app.use("/api/v1", router);
 
 app.use("*", (req, res, next) => {
   const err = new Error("Page not found");

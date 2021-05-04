@@ -9,45 +9,6 @@ const hash = require("../helpers/hashPassword");
 const validation = require("../helpers/validation");
 const secretKey = process.env.SECRET_KEY;
 
-exports.findAll = (req, res) => {
-  const idUser = req.auth.id;
-  const { page, perPage } = req.query;
-  const keyword = req.query.keyword ? req.query.keyword : "";
-  const sortBy = req.query.sortBy ? req.query.sortBy : "id";
-  const order = req.query.order ? req.query.order : "ASC";
-
-  usersModel
-    .getAllUsers(page, perPage, keyword, sortBy, order, idUser)
-    .then(([totalData, totalPage, result, page, perPage]) => {
-      if (result < 1) {
-        helper.printError(res, 400, "Users not found");
-        return;
-      }
-      for (let i = 0; i < perPage; i++) {
-        if (result[i] === undefined) {
-          break;
-        } else {
-          delete result[i].password;
-          delete result[i].createdAt;
-          delete result[i].updatedAt;
-        }
-      }
-      helper.printPaginate(
-        res,
-        200,
-        "Find all users successfully",
-        totalData,
-        totalPage,
-        result,
-        page,
-        perPage
-      );
-    })
-    .catch((err) => {
-      helper.printError(res, 500, err.message);
-    });
-};
-
 exports.findOne = (req, res) => {
   const id = req.auth.id;
 
@@ -59,6 +20,7 @@ exports.findOne = (req, res) => {
         return;
       }
       delete result[0].password;
+      delete result[0].active;
       delete result[0].createdAt;
       delete result[0].updatedAt;
       helper.printSuccess(res, 200, "Find one users successfully", result);
@@ -71,63 +33,95 @@ exports.findOne = (req, res) => {
 exports.create = async (req, res) => {
   let image;
   if (!req.file) {
-    image = "images\\avatar.png";
+    image = "images\\default.png";
   } else {
     image = req.file.path;
   }
 
-  const validate = validation.validationUsers(req.body);
+  const { name, email, phoneNumber, password } = req.body;
+  const store = req.body.store;
+  const isSeller = req.body.isSeller;
 
+  let validate;
+  let data;
+  if (isSeller) {
+    validate = validation.validationSeller(req.body);
+    data = {
+      name,
+      email,
+      phoneNumber: phoneNumber,
+      password: await hash.hashPassword(password),
+      gender: "Tidak didefinisikan",
+      dateOfBirth: "None",
+      image,
+      idAddress: 0,
+      active: false,
+      role: 1,
+    };
+  } else {
+    data = {
+      name,
+      email,
+      phoneNumber: "None",
+      password: await hash.hashPassword(password),
+      gender: "Tidak didefinisikan",
+      dateOfBirth: "None",
+      image,
+      idAddress: 0,
+      active: false,
+      role: 2,
+    };
+    validate = validation.validationCustomer(req.body);
+  }
   if (validate.error) {
     helper.printError(res, 400, validate.error.details[0].message);
     return;
   }
 
-  const {
-    username,
-    email,
-    password,
-    firstName,
-    lastName,
-    phoneNumber,
-  } = req.body;
-
-  const data = {
-    username,
-    email,
-    password: await hash.hashPassword(password),
-    firstName,
-    lastName,
-    fullName: `${firstName} ${lastName}`,
-    pin: 0,
-    phoneNumber,
-    image,
-    credit: 0,
-    role: 2,
-    active: false,
-  };
+  if (isSeller) {
+    try {
+      const checkStore = await usersModel.checkStore(store);
+      if (checkStore.length > 0) {
+        helper.printError(res, 400, "Store name is already in use");
+        return;
+      }
+    } catch (err) {
+      helper.printError(res, 500, err.message);
+      return;
+    }
+  }
 
   usersModel
-    .createUsers(data)
-    .then((result) => {
+    .createUsers(data, isSeller)
+    .then(async (result) => {
       if (result.affectedRows === 0) {
         helper.printError(res, 400, "Error creating users");
         return;
       }
       delete result[0].password;
-      delete result[0].pin;
+      delete result[0].active;
       delete result[0].createdAt;
       delete result[0].updatedAt;
       const payload = {
         id: result[0].id,
-        username: result[0].username,
+        name: result[0].name,
         email: result[0].email,
-        firstName: result[0].firstName,
-        lastName: result[0].lastName,
-        fullName: result[0].fullName,
         phoneNumber: result[0].phoneNumber,
+        gender: result[0].gender,
+        dateOfBirth: result[0].dateOfBirth,
+        image: result[0].image,
+        idAddress: result[0].idAddress,
         role: result[0].role,
       };
+      if (isSeller) {
+        const dataStore = {
+          idUser: result[0].id,
+          name: store,
+          description: "None",
+          image: "images\\default_store.jpg",
+        };
+        await usersModel.createStore(dataStore);
+      }
       jwt.sign(payload, secretKey, { expiresIn: "24h" }, async (err, token) => {
         const data = {
           email: result[0].email,
@@ -144,7 +138,10 @@ exports.create = async (req, res) => {
       });
     })
     .catch((err) => {
-      if (err.message === "Email has been registered") {
+      if (
+        err.message === "Email has been registered" ||
+        err.message === "Phone number is already in use"
+      ) {
         helper.printError(res, 400, err.message);
       } else {
         helper.printError(res, 500, err.message);
@@ -185,7 +182,7 @@ exports.verify = async (req, res) => {
               helper.printSuccess(
                 res,
                 200,
-                `${email} has been activated, please create your pin!`,
+                `${email} has been activated, please login!`,
                 decoded
               );
             }
@@ -219,19 +216,18 @@ exports.login = (req, res) => {
     .login(data)
     .then((result) => {
       delete result.password;
-      delete result.pin;
-      delete result.role;
       delete result.active;
       delete result.createdAt;
       delete result.updatedAt;
       const payload = {
         id: result.id,
-        username: result.username,
+        name: result.name,
         email: result.email,
-        firstName: result.firstName,
-        lastName: result.lastName,
-        fullName: result.fullName,
         phoneNumber: result.phoneNumber,
+        gender: result.gender,
+        dateOfBirth: result.dateOfBirth,
+        image: result.image,
+        idAddress: result.idAddress,
         role: result.role,
       };
       jwt.sign(payload, secretKey, { expiresIn: "24h" }, async (err, token) => {
@@ -246,7 +242,11 @@ exports.login = (req, res) => {
       });
     })
     .catch((err) => {
-      if (err.message === "Wrong email" || err.message === "Wrong password") {
+      if (
+        err.message === "Your email is not registered" ||
+        err.message === "Your email is not activated" ||
+        err.message === "Wrong password"
+      ) {
         helper.printError(res, 400, err.message);
       } else {
         helper.printError(res, 500, err.message);
@@ -255,6 +255,13 @@ exports.login = (req, res) => {
 };
 
 exports.forgotPassword = (req, res) => {
+  const validate = validation.validationEmail(req.body);
+
+  if (validate.error) {
+    helper.printError(res, 400, validate.error.details[0].message);
+    return;
+  }
+
   const email = req.body.email;
 
   const data = email;
@@ -262,22 +269,19 @@ exports.forgotPassword = (req, res) => {
   usersModel
     .findAccount(data)
     .then((result) => {
-      if (result.length < 1) {
-        helper.printError(res, 400, "Email is not registered or activated!");
-        return;
-      }
       delete result[0].password;
-      delete result[0].pin;
+      delete result[0].active;
       delete result[0].createdAt;
       delete result[0].updatedAt;
       const payload = {
         id: result[0].id,
-        username: result[0].username,
+        name: result[0].name,
         email: result[0].email,
-        firstName: result[0].firstName,
-        lastName: result[0].lastName,
-        fullName: result[0].fullName,
         phoneNumber: result[0].phoneNumber,
+        gender: result[0].gender,
+        dateOfBirth: result[0].dateOfBirth,
+        image: result[0].image,
+        idAddress: result[0].idAddress,
         role: result[0].role,
       };
       jwt.sign(payload, secretKey, { expiresIn: "24h" }, async (err, token) => {
@@ -285,6 +289,7 @@ exports.forgotPassword = (req, res) => {
           email: result[0].email,
           token: token,
         };
+        await usersModel.updateActive(result[0].id);
         await usersModel.createUsersToken(data);
         await mail.send(result[0].email, token, "forgot");
         helper.printSuccess(
@@ -337,6 +342,7 @@ exports.resetPassword = async (req, res) => {
             } else {
               const data = await hash.hashPassword(password);
               await usersModel.setPassword(data, email);
+              await usersModel.deleteToken(email);
               if (!data) {
                 helper.printError(res, 400, "Content cannot be empty");
                 return;
@@ -401,29 +407,6 @@ exports.update = async (req, res) => {
       delete result[0].createdAt;
       delete result[0].updatedAt;
       helper.printSuccess(res, 200, "Users has been updated", result);
-    })
-    .catch((err) => {
-      if (err.message === "Internal server error") {
-        helper.printError(res, 500, err.message);
-      }
-      helper.printError(res, 400, err.message);
-    });
-};
-
-exports.delete = (req, res) => {
-  const id = req.params.id;
-
-  usersModel
-    .findUser(id, "delete")
-    .then((result) => {
-      const image = result[0].image;
-      if (image !== "images\\avatar.png") {
-        removeImage(image);
-      }
-      return usersModel.deleteUsers(id);
-    })
-    .then((result) => {
-      helper.printSuccess(res, 200, "Users has been deleted", {});
     })
     .catch((err) => {
       if (err.message === "Internal server error") {

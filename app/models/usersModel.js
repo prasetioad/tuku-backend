@@ -1,45 +1,6 @@
 const bcrypt = require("bcrypt");
 const connection = require("../configs/dbConfig");
 
-exports.getAllUsers = (
-  queryPage,
-  queryPerPage,
-  keyword,
-  sortBy,
-  order,
-  idUser
-) => {
-  return new Promise((resolve, reject) => {
-    connection.query(
-      "SELECT COUNT(*) AS totalData FROM users WHERE fullName LIKE ? AND role = 2 AND id <> ?",
-      [`%${keyword}%`, idUser],
-      (err, result) => {
-        let totalData, page, perPage, totalPage;
-        if (err) {
-          reject(new Error("Internal server error"));
-        } else {
-          totalData = result[0].totalData;
-          page = queryPage ? parseInt(queryPage) : 1;
-          perPage = queryPerPage ? parseInt(queryPerPage) : 5;
-          totalPage = Math.ceil(totalData / perPage);
-        }
-        const firstData = perPage * page - perPage;
-        connection.query(
-          `SELECT * FROM users WHERE fullName LIKE ? AND role = 2 AND id <> ? ORDER BY ${sortBy} ${order} LIMIT ?, ?`,
-          [`%${keyword}%`, idUser, firstData, perPage],
-          (err, result) => {
-            if (err) {
-              reject(new Error("Internal server error"));
-            } else {
-              resolve([totalData, totalPage, result, page, perPage]);
-            }
-          }
-        );
-      }
-    );
-  });
-};
-
 exports.getUsersById = (id) => {
   return new Promise((resolve, reject) => {
     connection.query("SELECT * FROM users WHERE id = ?", id, (err, result) => {
@@ -52,35 +13,79 @@ exports.getUsersById = (id) => {
   });
 };
 
-exports.createUsers = (data) => {
+exports.createUsers = (data, isSeller) => {
   return new Promise((resolve, reject) => {
-    connection.query(
-      "SELECT * FROM users WHERE email = ?",
-      data.email,
-      (err, result) => {
-        if (result.length > 0) {
-          reject(new Error("Email has been registered"));
-        } else {
-          connection.query("INSERT INTO users SET ?", data, (err, result) => {
-            if (!err) {
-              connection.query(
-                "SELECT * FROM users WHERE id = ?",
-                result.insertId,
-                (err, result) => {
-                  if (!err) {
-                    resolve(result);
-                  } else {
-                    reject(new Error("Internal server error"));
-                  }
+    if (isSeller) {
+      connection.query(
+        "SELECT * FROM users WHERE email = ?",
+        data.email,
+        (err, result) => {
+          if (result.length > 0) {
+            reject(new Error("Email has been registered"));
+          } else {
+            connection.query(
+              "SELECT * FROM users WHERE phoneNumber = ?",
+              data.phoneNumber,
+              (err, result) => {
+                if (result.length > 0) {
+                  reject(new Error("Phone number is already in use"));
+                } else {
+                  connection.query(
+                    "INSERT INTO users SET ?",
+                    data,
+                    (err, result) => {
+                      if (!err) {
+                        connection.query(
+                          "SELECT * FROM users WHERE id = ?",
+                          result.insertId,
+                          (err, result) => {
+                            if (!err) {
+                              resolve(result);
+                            } else {
+                              reject(new Error("Internal server error"));
+                            }
+                          }
+                        );
+                      } else {
+                        reject(new Error(err));
+                      }
+                    }
+                  );
                 }
-              );
-            } else {
-              reject(new Error("Internal server error"));
-            }
-          });
+              }
+            );
+          }
         }
-      }
-    );
+      );
+    } else {
+      connection.query(
+        "SELECT * FROM users WHERE email = ?",
+        data.email,
+        (err, result) => {
+          if (result.length > 0) {
+            reject(new Error("Email has been registered"));
+          } else {
+            connection.query("INSERT INTO users SET ?", data, (err, result) => {
+              if (!err) {
+                connection.query(
+                  "SELECT * FROM users WHERE id = ?",
+                  result.insertId,
+                  (err, result) => {
+                    if (!err) {
+                      resolve(result);
+                    } else {
+                      reject(new Error("Internal server error"));
+                    }
+                  }
+                );
+              } else {
+                reject(new Error(err));
+              }
+            });
+          }
+        }
+      );
+    }
   });
 };
 
@@ -93,6 +98,34 @@ exports.createUsersToken = (data) => {
         reject(new Error("Internal server error"));
       }
     });
+  });
+};
+
+exports.createStore = (data) => {
+  return new Promise((resolve, reject) => {
+    connection.query("INSERT INTO store SET ?", data, (err, result) => {
+      if (!err) {
+        resolve(result);
+      } else {
+        reject(new Error("Internal server error"));
+      }
+    });
+  });
+};
+
+exports.checkStore = (data) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "SELECT * FROM store WHERE name = ?",
+      data,
+      (err, result) => {
+        if (err) {
+          reject(new Error("Internal server error"));
+        } else {
+          resolve(result);
+        }
+      }
+    );
   });
 };
 
@@ -188,7 +221,7 @@ exports.login = (data) => {
           if (result.length === 1) {
             const user = result[0];
             if (result[0].active === 0) {
-              reject(new Error("Your email not activated"));
+              reject(new Error("Your email is not activated"));
             } else {
               bcrypt.compare(
                 data.password,
@@ -207,7 +240,7 @@ exports.login = (data) => {
               );
             }
           } else {
-            reject(new Error("Wrong email"));
+            reject(new Error("Your email is not registered"));
           }
         }
       }
@@ -218,11 +251,29 @@ exports.login = (data) => {
 exports.findAccount = (data) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "SELECT * FROM users WHERE email = ? AND active = true",
+      "SELECT * FROM users WHERE email = ?",
       data,
       (err, result) => {
         if (!err) {
-          resolve(result);
+          if (result.length < 1) {
+            reject(new Error("Your email is not registered"));
+          } else {
+            connection.query(
+              "SELECT * FROM users WHERE email = ? AND active = true",
+              data,
+              (err, result) => {
+                if (!err) {
+                  if (result.length < 1) {
+                    reject(new Error("Your email is not activated"));
+                  } else {
+                    resolve(result);
+                  }
+                } else {
+                  reject(new Error("Internal server error"));
+                }
+              }
+            );
+          }
         } else {
           reject(new Error("Internal server error"));
         }
@@ -264,18 +315,6 @@ exports.updateUsers = (id, data) => {
         }
       }
     );
-  });
-};
-
-exports.deleteUsers = (id) => {
-  return new Promise((resolve, reject) => {
-    connection.query("DELETE FROM users WHERE id = ?", id, (err, result) => {
-      if (!err) {
-        resolve(result);
-      } else {
-        reject(new Error("Internal server error"));
-      }
-    });
   });
 };
 
@@ -330,8 +369,24 @@ exports.createToken = (data) => {
 exports.setPassword = (password, email) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "UPDATE users SET password = ? WHERE email = ?",
+      `UPDATE users SET password = ?, active = true WHERE email = ?`,
       [password, email],
+      (err, result) => {
+        if (!err) {
+          resolve(result);
+        } else {
+          reject(new Error("Internal server error"));
+        }
+      }
+    );
+  });
+};
+
+exports.updateActive = (id) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "UPDATE users SET active = false WHERE id = ?",
+      id,
       (err, result) => {
         if (!err) {
           resolve(result);

@@ -56,7 +56,6 @@ exports.create = async (req, res) => {
       gender: "Tidak didefinisikan",
       dateOfBirth: "None",
       image,
-      idAddress: 0,
       active: false,
       role: 1,
     };
@@ -69,7 +68,6 @@ exports.create = async (req, res) => {
       gender: "Tidak didefinisikan",
       dateOfBirth: "None",
       image,
-      idAddress: 0,
       active: false,
       role: 2,
     };

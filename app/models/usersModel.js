@@ -289,26 +289,36 @@ exports.updateUsers = (id, data) => {
       [id, data.email],
       (err, result) => {
         if (result.length > 0) {
-          reject(new Error("Email has been registered"));
+          reject(new Error("Email is already in use"));
         } else {
           connection.query(
-            "UPDATE users SET ? WHERE id = ?",
-            [data, id],
+            `SELECT * FROM users WHERE NOT id = ? AND phoneNumber = ?`,
+            [id, data.phoneNumber],
             (err, result) => {
-              if (!err) {
+              if (result.length > 0) {
+                reject(new Error("Phone number is already in use"));
+              } else {
                 connection.query(
-                  "SELECT * FROM users WHERE id = ?",
-                  id,
+                  "UPDATE users SET ? WHERE id = ?",
+                  [data, id],
                   (err, result) => {
                     if (!err) {
-                      resolve(result);
+                      connection.query(
+                        "SELECT * FROM users WHERE id = ?",
+                        id,
+                        (err, result) => {
+                          if (!err) {
+                            resolve(result);
+                          } else {
+                            reject(new Error("Internal server error"));
+                          }
+                        }
+                      );
                     } else {
                       reject(new Error("Internal server error"));
                     }
                   }
                 );
-              } else {
-                reject(new Error("Internal server error"));
               }
             }
           );

@@ -20,6 +20,16 @@ module.exports = {
     });
     return schema.validate(users);
   },
+  validationUpdate: (users) => {
+    const schema = Joi.object({
+      name: Joi.string().required(),
+      email: Joi.string().email().required(),
+      phoneNumber: Joi.number().required(),
+      gender: Joi.string().required(),
+      dateOfBirth: Joi.date().required(),
+    });
+    return schema.validate(users);
+  },
   validationLogin: (users) => {
     const schema = Joi.object({
       email: Joi.string().email().required(),

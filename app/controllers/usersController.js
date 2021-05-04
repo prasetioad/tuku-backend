@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const moment = require("moment");
 const ip = require("ip");
 const path = require("path");
 const fs = require("fs");
@@ -8,6 +9,7 @@ const mail = require("../helpers/sendEmail");
 const hash = require("../helpers/hashPassword");
 const validation = require("../helpers/validation");
 const secretKey = process.env.SECRET_KEY;
+moment.locale("id");
 
 exports.findOne = (req, res) => {
   const id = req.auth.id;
@@ -366,7 +368,7 @@ exports.resetPassword = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  const validate = validation.validationUsersUpdate(req.body);
+  const validate = validation.validationUpdate(req.body);
 
   if (validate.error) {
     helper.printError(res, 400, validate.error.details[0].message);
@@ -375,14 +377,14 @@ exports.update = async (req, res) => {
 
   const id = req.params.id;
 
-  const { username, firstName, lastName, phoneNumber } = req.body;
+  const { name, email, phoneNumber, gender, dateOfBirth } = req.body;
 
   const data = {
-    username,
-    firstName,
-    lastName,
-    fullName: `${firstName} ${lastName}`,
+    name,
+    email,
     phoneNumber,
+    gender,
+    dateOfBirth: moment(dateOfBirth).format("LL"),
   };
 
   usersModel
@@ -393,7 +395,7 @@ exports.update = async (req, res) => {
         image = result[0].image;
       } else {
         const oldImage = result[0].image;
-        if (oldImage !== "images\\avatar.png") {
+        if (oldImage !== "images\\default.png") {
           removeImage(oldImage);
         }
         image = req.file.path;
@@ -403,7 +405,7 @@ exports.update = async (req, res) => {
     })
     .then((result) => {
       delete result[0].password;
-      delete result[0].pin;
+      delete result[0].active;
       delete result[0].createdAt;
       delete result[0].updatedAt;
       helper.printSuccess(res, 200, "Users has been updated", result);

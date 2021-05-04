@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Bulan Mei 2021 pada 15.56
+-- Waktu pembuatan: 04 Bulan Mei 2021 pada 16.19
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.1
 
@@ -109,13 +109,15 @@ CREATE TABLE `category` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `color`
+-- Struktur dari tabel `detail_product`
 --
 
-CREATE TABLE `color` (
+CREATE TABLE `detail_product` (
   `id` int(11) NOT NULL,
   `idProduct` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `size` varchar(50) NOT NULL,
+  `color` varchar(50) NOT NULL,
+  `stock` int(11) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -164,26 +166,11 @@ CREATE TABLE `product` (
   `price` int(11) NOT NULL,
   `conditions` varchar(50) NOT NULL,
   `description` text NOT NULL,
-  `stock` int(11) NOT NULL,
   `totalSale` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
   `isPopular` tinyint(1) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `size`
---
-
-CREATE TABLE `size` (
-  `id` int(11) NOT NULL,
-  `idProduct` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
-  `upatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -294,12 +281,11 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `color`
+-- Indeks untuk tabel `detail_product`
 --
-ALTER TABLE `color`
+ALTER TABLE `detail_product`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idProduct` (`idProduct`),
-  ADD KEY `idProduct_2` (`idProduct`);
+  ADD KEY `idProduct` (`idProduct`);
 
 --
 -- Indeks untuk tabel `detail_transaction`
@@ -323,13 +309,6 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idCategory` (`idCategory`,`idStore`),
   ADD KEY `idStore` (`idStore`);
-
---
--- Indeks untuk tabel `size`
---
-ALTER TABLE `size`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idProduct` (`idProduct`);
 
 --
 -- Indeks untuk tabel `store`
@@ -389,9 +368,9 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `color`
+-- AUTO_INCREMENT untuk tabel `detail_product`
 --
-ALTER TABLE `color`
+ALTER TABLE `detail_product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -410,12 +389,6 @@ ALTER TABLE `gallery`
 -- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `size`
---
-ALTER TABLE `size`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -460,10 +433,10 @@ ALTER TABLE `bag`
   ADD CONSTRAINT `bag_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `color`
+-- Ketidakleluasaan untuk tabel `detail_product`
 --
-ALTER TABLE `color`
-  ADD CONSTRAINT `color_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `detail_product`
+  ADD CONSTRAINT `detail_product_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `detail_transaction`
@@ -484,12 +457,6 @@ ALTER TABLE `gallery`
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`idStore`) REFERENCES `store` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`idCategory`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `size`
---
-ALTER TABLE `size`
-  ADD CONSTRAINT `size_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `store`

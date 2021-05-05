@@ -5,8 +5,7 @@ const auth = require("../middlewares/auth");
 const multer = require("../middlewares/multer");
 
 router
-  .post('/insert', addressController.insertAddress)
-  .put('/update/:id', addressController.updateAddress)
-
+  .post("/insert", auth.verification(), addressController.insertAddress)
+  .put("/update/:id", auth.verification(), addressController.updateAddress);
 
 module.exports = router;

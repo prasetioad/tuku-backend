@@ -17,6 +17,7 @@ module.exports = {
       name: Joi.string().required(),
       email: Joi.string().email().required(),
       password: Joi.string().min(8).required().strict(),
+      isSeller: Joi.boolean().required(),
     });
     return schema.validate(users);
   },
@@ -34,6 +35,7 @@ module.exports = {
     const schema = Joi.object({
       email: Joi.string().email().required(),
       password: Joi.string().min(8).required().strict(),
+      isSeller: Joi.boolean().required(),
     });
     return schema.validate(users);
   },

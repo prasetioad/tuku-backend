@@ -15,14 +15,14 @@ exports.getUsersById = (id) => {
 
 exports.createUsers = (data, isSeller) => {
   return new Promise((resolve, reject) => {
-    if (isSeller) {
-      connection.query(
-        "SELECT * FROM users WHERE email = ?",
-        data.email,
-        (err, result) => {
-          if (result.length > 0) {
-            reject(new Error("Email has been registered"));
-          } else {
+    connection.query(
+      "SELECT * FROM users WHERE email = ?",
+      data.email,
+      (err, result) => {
+        if (result.length > 0) {
+          reject(new Error("Email has been registered"));
+        } else {
+          if (isSeller === "true" || isSeller === true) {
             connection.query(
               "SELECT * FROM users WHERE phoneNumber = ?",
               data.phoneNumber,
@@ -54,16 +54,6 @@ exports.createUsers = (data, isSeller) => {
                 }
               }
             );
-          }
-        }
-      );
-    } else {
-      connection.query(
-        "SELECT * FROM users WHERE email = ?",
-        data.email,
-        (err, result) => {
-          if (result.length > 0) {
-            reject(new Error("Email has been registered"));
           } else {
             connection.query("INSERT INTO users SET ?", data, (err, result) => {
               if (!err) {
@@ -84,8 +74,8 @@ exports.createUsers = (data, isSeller) => {
             });
           }
         }
-      );
-    }
+      }
+    );
   });
 };
 
@@ -209,7 +199,7 @@ exports.setActive = (email) => {
   });
 };
 
-exports.login = (data) => {
+exports.login = (data, isSeller) => {
   return new Promise((resolve, reject) => {
     connection.query(
       "SELECT * FROM users WHERE email = ?",
@@ -223,18 +213,45 @@ exports.login = (data) => {
             if (result[0].active === 0) {
               reject(new Error("Your email is not activated"));
             } else {
-              bcrypt.compare(
-                data.password,
-                result[0].password,
+              let role;
+              let message;
+              if (isSeller === "true" || isSeller === true) {
+                role = 1;
+                message = "seller";
+              } else {
+                role = 2;
+                message = "customer";
+              }
+              connection.query(
+                `SELECT * FROM users WHERE email = ? AND role = ${role}`,
+                data.email,
                 (err, result) => {
-                  if (err) {
-                    reject(new Error("Internal server error"));
-                  } else {
-                    if (result) {
-                      resolve(user);
+                  if (!err) {
+                    if (result.length < 1) {
+                      reject(
+                        new Error(
+                          `Your email is not registered as a ${message}`
+                        )
+                      );
                     } else {
-                      reject(new Error("Wrong password"));
+                      bcrypt.compare(
+                        data.password,
+                        result[0].password,
+                        (err, result) => {
+                          if (err) {
+                            reject(new Error("Internal server error"));
+                          } else {
+                            if (result) {
+                              resolve(user);
+                            } else {
+                              reject(new Error("Wrong password"));
+                            }
+                          }
+                        }
+                      );
                     }
+                  } else {
+                    reject(new Error("Internal server error"));
                   }
                 }
               );

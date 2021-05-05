@@ -46,7 +46,7 @@ exports.create = async (req, res) => {
 
   let validate;
   let data;
-  if (isSeller) {
+  if (isSeller === "true" || isSeller === true) {
     validate = validation.validationSeller(req.body);
     data = {
       name,
@@ -60,6 +60,7 @@ exports.create = async (req, res) => {
       role: 1,
     };
   } else {
+    validate = validation.validationCustomer(req.body);
     data = {
       name,
       email,
@@ -71,14 +72,13 @@ exports.create = async (req, res) => {
       active: false,
       role: 2,
     };
-    validate = validation.validationCustomer(req.body);
   }
   if (validate.error) {
     helper.printError(res, 400, validate.error.details[0].message);
     return;
   }
 
-  if (isSeller) {
+  if (isSeller === "true" || isSeller === true) {
     try {
       const checkStore = await usersModel.checkStore(store);
       if (checkStore.length > 0) {
@@ -113,7 +113,7 @@ exports.create = async (req, res) => {
         idAddress: result[0].idAddress,
         role: result[0].role,
       };
-      if (isSeller) {
+      if (isSeller === "true" || isSeller === true) {
         const dataStore = {
           idUser: result[0].id,
           name: store,
@@ -206,6 +206,7 @@ exports.login = (req, res) => {
   }
 
   const { email, password } = req.body;
+  const isSeller = req.body.isSeller;
 
   const data = {
     email,
@@ -213,7 +214,7 @@ exports.login = (req, res) => {
   };
 
   usersModel
-    .login(data)
+    .login(data, isSeller)
     .then((result) => {
       delete result.password;
       delete result.active;

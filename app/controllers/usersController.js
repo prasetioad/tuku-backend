@@ -51,7 +51,7 @@ exports.create = async (req, res) => {
     data = {
       name,
       email,
-      phoneNumber: phoneNumber,
+      phoneNumber,
       password: await hash.hashPassword(password),
       gender: "Tidak didefinisikan",
       dateOfBirth: "None",
@@ -60,7 +60,12 @@ exports.create = async (req, res) => {
       role: 1,
     };
   } else {
-    validate = validation.validationCustomer(req.body);
+    validate = validation.validationCustomer({
+      name,
+      email,
+      password,
+      isSeller,
+    });
     data = {
       name,
       email,

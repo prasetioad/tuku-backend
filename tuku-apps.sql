@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Bulan Mei 2021 pada 16.19
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 8.0.1
+-- Generation Time: May 06, 2021 at 12:13 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `access_token`
+-- Table structure for table `access_token`
 --
 
 CREATE TABLE `access_token` (
@@ -37,7 +37,7 @@ CREATE TABLE `access_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `access_token`
+-- Dumping data for table `access_token`
 --
 
 INSERT INTO `access_token` (`id`, `idUser`, `accessToken`, `ipAddress`, `createdAt`, `updatedAt`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `access_token` (`id`, `idUser`, `accessToken`, `ipAddress`, `created
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `address`
+-- Table structure for table `address`
 --
 
 CREATE TABLE `address` (
@@ -68,16 +68,17 @@ CREATE TABLE `address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `address`
+-- Dumping data for table `address`
 --
 
 INSERT INTO `address` (`id`, `idUser`, `type`, `name`, `phoneNumber`, `address`, `postalCode`, `city`, `isPrimary`, `createdAt`, `updatedAt`) VALUES
-(1, 4, 'None', 'None', 'None', 'None', 'None', 'None', 0, '2021-05-04 13:26:28', '2021-05-04 13:26:46');
+(1, 4, 'None', 'None', 'None', 'None', 'None', 'None', 0, '2021-05-04 13:26:28', '2021-05-04 13:26:46'),
+(17, 4, 'home', 'herza', '08133566387', 'jalan kebenaran menuju surga', '61257', 'Surabaya', 0, '2021-05-04 16:26:39', '2021-05-04 17:11:32');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `bag`
+-- Table structure for table `bag`
 --
 
 CREATE TABLE `bag` (
@@ -96,7 +97,7 @@ CREATE TABLE `bag` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `category`
+-- Table structure for table `category`
 --
 
 CREATE TABLE `category` (
@@ -106,10 +107,20 @@ CREATE TABLE `category` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
+(1, 't-shirt', '2021-05-04 18:18:41', '2021-05-04 18:18:41'),
+(2, 'jacket', '2021-05-04 18:18:41', '2021-05-04 18:18:41'),
+(3, 'pants', '2021-05-04 18:18:41', '2021-05-04 18:18:41'),
+(4, 'shoes', '2021-05-04 18:18:41', '2021-05-04 18:18:41');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_product`
+-- Table structure for table `detail_product`
 --
 
 CREATE TABLE `detail_product` (
@@ -125,7 +136,7 @@ CREATE TABLE `detail_product` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `detail_transaction`
+-- Table structure for table `detail_transaction`
 --
 
 CREATE TABLE `detail_transaction` (
@@ -141,7 +152,7 @@ CREATE TABLE `detail_transaction` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gallery`
+-- Table structure for table `gallery`
 --
 
 CREATE TABLE `gallery` (
@@ -152,10 +163,73 @@ CREATE TABLE `gallery` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `gallery`
+--
+
+INSERT INTO `gallery` (`id`, `idProduct`, `image`, `createdAt`, `updatedAt`) VALUES
+(1, 3, '/LITE%20RACER%202.0.png', '2021-05-05 21:36:50', '2021-05-05 21:36:50'),
+(2, 3, '/LITE%20RACER%202.0(2).png', '2021-05-05 21:36:50', '2021-05-05 21:36:50'),
+(3, 3, '/LITE%20RACER%202.0(3).png', '2021-05-05 21:36:50', '2021-05-05 21:36:50'),
+(4, 3, '/LITE%20RACER%202.0(4).png', '2021-05-05 21:36:50', '2021-05-05 21:36:50'),
+(5, 4, '/zx%201k%20boost.png', '2021-05-05 21:39:53', '2021-05-05 21:39:53'),
+(6, 4, '/zx%201k%20boost(2).png', '2021-05-05 21:39:53', '2021-05-05 21:39:53'),
+(7, 4, '/zx%201k%20boost(3).png', '2021-05-05 21:39:53', '2021-05-05 21:39:53'),
+(8, 4, '/zx%201k%20boost(4).png', '2021-05-05 21:39:53', '2021-05-05 21:39:53'),
+(9, 5, '/SUPERSTAR.png', '2021-05-05 21:41:31', '2021-05-05 21:41:31'),
+(10, 5, '/SUPERSTAR(2).png', '2021-05-05 21:41:31', '2021-05-05 21:41:31'),
+(11, 5, '/SUPERSTAR(3).png', '2021-05-05 21:41:31', '2021-05-05 21:41:31'),
+(12, 5, '/SUPERSTAR(4).png', '2021-05-05 21:41:31', '2021-05-05 21:41:31'),
+(13, 6, '/FULL-ZIP%20STADIUM%20HOODIE.png', '2021-05-05 21:43:02', '2021-05-05 21:43:02'),
+(14, 6, '/FULL-ZIP%20STADIUM%20HOODIE(2).png', '2021-05-05 21:43:02', '2021-05-05 21:43:02'),
+(15, 6, '/FULL-ZIP%20STADIUM%20HOODIE(3).png', '2021-05-05 21:43:02', '2021-05-05 21:43:02'),
+(16, 6, '/FULL-ZIP%20STADIUM%20HOODIE(4).png', '2021-05-05 21:43:02', '2021-05-05 21:43:02'),
+(17, 7, '/PLECKGATE%20TRACK%20JACKET.png', '2021-05-05 21:44:23', '2021-05-05 21:44:23'),
+(18, 7, '/PLECKGATE%20TRACK%20JACKET(2).png', '2021-05-05 21:44:23', '2021-05-05 21:44:23'),
+(19, 7, '/PLECKGATE%20TRACK%20JACKET(3).png', '2021-05-05 21:44:23', '2021-05-05 21:44:23'),
+(20, 7, '/PLECKGATE%20TRACK%20JACKET(4).png', '2021-05-05 21:44:23', '2021-05-05 21:44:23'),
+(21, 8, '/BALANTA%2096%20TRACK%20TOP.png', '2021-05-05 21:45:46', '2021-05-05 21:45:46'),
+(22, 8, '/BALANTA%2096%20TRACK%20TOP(2).png', '2021-05-05 21:45:46', '2021-05-05 21:45:46'),
+(23, 8, '/BALANTA%2096%20TRACK%20TOP(3).png', '2021-05-05 21:45:46', '2021-05-05 21:45:46'),
+(24, 8, '/BALANTA%2096%20TRACK%20TOP(4).png', '2021-05-05 21:45:46', '2021-05-05 21:45:46'),
+(25, 9, '/BIG%20TREFOIL%20ABSTRACT%20TRACK%20TOP.png', '2021-05-05 21:47:25', '2021-05-05 21:47:25'),
+(26, 9, '/BIG%20TREFOIL%20ABSTRACT%20TRACK%20TOP(2).png', '2021-05-05 21:47:25', '2021-05-05 21:47:25'),
+(27, 9, '/BIG%20TREFOIL%20ABSTRACT%20TRACK%20TOP(3).png', '2021-05-05 21:47:25', '2021-05-05 21:47:25'),
+(28, 9, '/BIG%20TREFOIL%20ABSTRACT%20TRACK%20TOP(4).png', '2021-05-05 21:47:25', '2021-05-05 21:47:25'),
+(29, 10, '/Nike%20Sportswear.png', '2021-05-05 21:49:16', '2021-05-05 21:49:16'),
+(30, 10, '/Nike%20Sportswear(2).png', '2021-05-05 21:49:16', '2021-05-05 21:49:16'),
+(31, 10, '/Nike%20Sportswear(3).png', '2021-05-05 21:49:16', '2021-05-05 21:49:16'),
+(32, 10, '/Nike%20Sportswear(4).png', '2021-05-05 21:49:16', '2021-05-05 21:49:16'),
+(33, 11, '/Jordan%20Jumpman%20Classics.png', '2021-05-05 21:50:48', '2021-05-05 21:50:48'),
+(34, 11, '/Jordan%20Jumpman%20Classics(2).png', '2021-05-05 21:50:48', '2021-05-05 21:50:48'),
+(35, 11, '/Jordan%20Jumpman%20Classics(3).png', '2021-05-05 21:50:48', '2021-05-05 21:50:48'),
+(36, 11, '/Jordan%20Jumpman%20Classics(4).png', '2021-05-05 21:50:48', '2021-05-05 21:50:48'),
+(37, 12, '/RUN%20LOGO%20GRAPHIC%20TEE.png', '2021-05-05 21:51:39', '2021-05-05 21:51:39'),
+(38, 14, '/BADGE%20OF%20SPORT%20SHORTS.png', '2021-05-05 21:53:25', '2021-05-05 21:53:25'),
+(39, 14, '/BADGE%20OF%20SPORT%20SHORTS(2).png', '2021-05-05 21:53:25', '2021-05-05 21:53:25'),
+(40, 14, '/BADGE%20OF%20SPORT%20SHORTS(3).png', '2021-05-05 21:53:25', '2021-05-05 21:53:25'),
+(41, 14, '/BADGE%20OF%20SPORT%20SHORTS(4).png', '2021-05-05 21:53:25', '2021-05-05 21:53:25'),
+(42, 15, '/OWN%20THE%20RUN%20CELEBRATION%20SHORTS.png', '2021-05-05 21:55:01', '2021-05-05 21:55:01'),
+(43, 15, '/OWN%20THE%20RUN%20CELEBRATION%20SHORTS(2).png', '2021-05-05 21:55:01', '2021-05-05 21:55:01'),
+(44, 15, '/OWN%20THE%20RUN%20CELEBRATION%20SHORTS(3).png', '2021-05-05 21:55:01', '2021-05-05 21:55:01'),
+(45, 15, '/OWN%20THE%20RUN%20CELEBRATION%20SHORTS(4).png', '2021-05-05 21:55:01', '2021-05-05 21:55:01'),
+(54, 16, '/Nike%20Sportswear%20City%20Made.png', '2021-05-05 22:09:23', '2021-05-05 22:09:23'),
+(55, 16, '/Nike%20Sportswear%20City%20Made(2).png', '2021-05-05 22:09:23', '2021-05-05 22:09:23'),
+(56, 16, '/Nike%20Sportswear%20City%20Made(3).png', '2021-05-05 22:09:23', '2021-05-05 22:09:23'),
+(57, 16, '/Nike%20Sportswear%20City%20Made(4).png', '2021-05-05 22:09:23', '2021-05-05 22:09:23'),
+(58, 17, '/Jordan%20Dri-FIT%20Zion.png', '2021-05-05 22:10:54', '2021-05-05 22:10:54'),
+(59, 17, '/Jordan%20Dri-FIT%20Zion(2).png', '2021-05-05 22:10:54', '2021-05-05 22:10:54'),
+(60, 17, '/Jordan%20Dri-FIT%20Zion(3).png', '2021-05-05 22:10:54', '2021-05-05 22:10:54'),
+(61, 17, '/Jordan%20Dri-FIT%20Zion(4).png', '2021-05-05 22:10:54', '2021-05-05 22:10:54'),
+(62, 13, '/HEAT.RDY%20RUNNING%20TANK%20TOP.png', '2021-05-05 22:12:38', '2021-05-05 22:12:38'),
+(63, 13, '/HEAT.RDY%20RUNNING%20TANK%20TOP(2).png', '2021-05-05 22:12:38', '2021-05-05 22:12:38'),
+(64, 13, '/HEAT.RDY%20RUNNING%20TANK%20TOP(3).png', '2021-05-05 22:12:38', '2021-05-05 22:12:38'),
+(65, 13, '/HEAT.RDY%20RUNNING%20TANK%20TOP(4).png', '2021-05-05 22:12:38', '2021-05-05 22:12:38');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `product`
+-- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
@@ -173,10 +247,32 @@ CREATE TABLE `product` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `title`, `idCategory`, `idStore`, `price`, `conditions`, `description`, `totalSale`, `rating`, `isPopular`, `createdAt`, `updatedAt`) VALUES
+(2, 'ZX 8000 GOLF', 4, 5, 2300000, 'new', 'Lace up for tee time. These ZX 8000 Golf Shoes are part of the adidas A-ZX series, a global platform spanning a multitude of cultural touch points to showcase the diverse world of sneakers. Representing the letter G, this golf-inspired pair flash a glossy, embossed leather upper reminiscent of a golf ball. Neon accents and a functional ball marker and tee holder design make them stand out even more.', 1, 5, 0, '2021-05-05 20:56:15', '2021-05-05 21:01:16'),
+(3, 'LITE RACER 2.0', 4, 5, 300000, 'new', 'Bring sport attitude into everyday life. These adidas running-inspired shoes feature a knit upper to keep you cool for school, work or play. Lightweight cushioning adds comfort during power walks and strolls in the park.', 1, 4, 0, '2021-05-05 20:59:41', '2021-05-05 21:07:27'),
+(4, 'ZX 1K BOOST', 4, 5, 1600000, 'new', 'In a constantly evolving world, keeping up is just part of the routine. Stay on top of it in these airy knit mesh adidas shoes. The ZX series has merged technology with culture since the \'80s. Today a combination of Boost and EVA cushioning keeps you comfortable as you charge through the day.', 1, 4, 1, '2021-05-05 21:02:11', '2021-05-05 21:02:11'),
+(5, 'SUPERSTAR', 4, 5, 1600000, 'new', 'Originally made for basketball courts in the \'70s. Celebrated by hip hop royalty in the \'80s. The adidas Superstar shoe is now a lifestyle staple for streetwear enthusiasts. The world-famous shell toe feature remains, providing style and protection. Just like it did on the B-ball courts back in the day. Now, whether at a festival or walking in the street you can enjoy yourself without the fear of being stepped on. The serrated 3-Stripes detail and adidas Superstar box logo adds OG authenticity to your look.', 1, 4, 1, '2021-05-05 21:07:09', '2021-05-05 21:07:09'),
+(6, 'FULL-ZIP STADIUM HOODIE', 2, 5, 1000000, 'new', 'Take a moment to let it all sink in. You gave it your all. You pushed through, mentally and physically. As you sit on that locker room bench lacing up your shoes, still feeling the energy vibrating through your body, remember that you\'re the one who got yourself there. Then zip into this adidas hoodie and go celebrate that. The soft fabric and snug ribbed details reward tired muscles with comfort. You deserve it.', 1, 1, 1, '2021-05-05 21:07:09', '2021-05-05 21:07:09'),
+(7, 'PLECKGATE TRACK JACKET', 2, 5, 2800000, 'new', 'Terracewear meets dance hall hardwood. Inspired by the Northern Soul movement that hit England during the 1970s, this adidas track jacket takes a silhouette made famous in the stands and infuses it with carefree attitude. A stand-up collar and a bonded zip bring tailored style to your casual look.', 1, 4, 1, '2021-05-05 21:07:09', '2021-05-05 21:07:09'),
+(8, 'BALANTA 96 TRACK TOP', 2, 5, 750000, 'new', 'Pay homage to the spirit of sport. Zip into this track jacket and honour the connection and unity found in shared experience. Wins and losses. The beauty of the game. This lightweight layer blends the striking club colours of Morocco and the Netherlands into an archival design, for a look that keeps your look right on pitch.', 1, 4, 1, '2021-05-05 21:07:09', '2021-05-05 21:07:09'),
+(9, 'BIG TREFOIL ABSTRACT TRACK TOP', 2, 5, 900000, 'new', 'You\'re drawn to that quality that never goes out of style. A little edgy, a bit unexpected in its originality. Like the signature adidas track jacket. The classic look of sports heritage has been defined by adidas for decades. Others might build on the 3-Stripes foundation, but can anyone else really compete with an icon?', 1, 4, 1, '2021-05-05 21:07:09', '2021-05-05 21:07:09'),
+(10, 'Nike Sportswear', 1, 5, 399000, 'new', 'Sushi and sneaker connoisseurs behold: The Nike Sportswear T-Shirt sets you up with soft, cotton fabric and a Nike graphic on the chest for total shoeshi fantasy.', 1, 4, 1, '2021-05-05 21:11:27', '2021-05-05 21:11:27'),
+(11, 'Jordan Jumpman Classics', 1, 5, 399000, 'new', 'Ready for take-off. The Jordan Jumpman Classics T-Shirt riffs on an iconic Michael Jordan image with a fresh, bold-letter graphic.', 1, 4, 1, '2021-05-05 21:11:27', '2021-05-05 21:11:27'),
+(12, 'RUN LOGO GRAPHIC TEE', 1, 5, 299000, 'new', 'Always one run away from a good mood. Slip on this adidas running t-shirt, and let the endorphins multiply. Not only does it keep you dry with moisture-absorbing AEROREADY, but it\'s also made with the planet in mind. A tee you\'ll feel good wearing for more reasons than one. This product is made with Primegreen, a series of high-performance recycled materials.', 1, 4, 1, '2021-05-05 21:11:27', '2021-05-05 21:11:27'),
+(13, 'RUNNING TANK TOP', 1, 5, 550000, 'new', 'No matter how high the temperature rises, you\'re ready. Slip on this light and breathable adidas tank top, knowing HEAT.RDY will manage moisture and keep air flowing with every stride you take. And knowing the recycled content is helping to end plastic waste. This product is made with Primegreen, a series of high-performance recycled materials.', 1, 4, 1, '2021-05-05 21:11:27', '2021-05-05 21:11:27'),
+(14, 'BADGE OF SPORT SHORTS', 3, 5, 450000, 'new', 'Whether you\'re headed to the gym or out with your crew, pull on these casual shorts. They\'re made of soft cotton-blend French terry in an easy-to-wear fit that\'s not too loose or too tight. The drawcord-adjustable elastic waist lets you personalise the fit.', 1, 4, 1, '2021-05-05 21:14:54', '2021-05-05 21:14:54'),
+(15, 'OWN THE RUN CELEBRATION SHORTS', 3, 5, 450000, 'new', 'Every run has its share of triumphs and defeats. When you stay comfortable in these running shorts, it\'s easier to appreciate the process. AEROREADY wicks moisture, and the cut gives you free movement through your stride. Graphic panels add a heavy dose of adidas pride.', 1, 4, 1, '2021-05-05 21:14:54', '2021-05-05 21:14:54'),
+(16, 'Nike Sportswear City Made', 3, 5, 1249000, 'new', 'The Nike Air Woven Trousers update a style staple with Ripstop fabric and reinforced panels. A tapered leg design and utility details provide a clean, tactical look.', 1, 4, 1, '2021-05-05 21:14:54', '2021-05-05 21:14:54'),
+(17, 'Jordan Dri-FIT Zion', 3, 5, 1429000, 'new', 'Zion likes versatile clothing that he can wear while hanging with family and friends—and then go and hoop in.The Jordan Dri-FIT Zion Trousers tick all boxes, with smooth, sweat-wicking fleece and a design that\'s fit for moving on and off the court.', 1, 4, 1, '2021-05-05 21:14:54', '2021-05-05 21:14:54');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `store`
+-- Table structure for table `store`
 --
 
 CREATE TABLE `store` (
@@ -189,10 +285,17 @@ CREATE TABLE `store` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `store`
+--
+
+INSERT INTO `store` (`id`, `idUser`, `name`, `description`, `image`, `createdAt`, `updatedAt`) VALUES
+(5, 5, 'Hype Beast Style', 'Our business is built on trust, and every item we sell is guaranteed authentic.', '', '2021-05-05 20:54:29', '2021-05-05 20:54:29');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaction`
+-- Table structure for table `transaction`
 --
 
 CREATE TABLE `transaction` (
@@ -209,7 +312,7 @@ CREATE TABLE `transaction` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -228,7 +331,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `phoneNumber`, `gender`, `dateOfBirth`, `image`, `active`, `role`, `createdAt`, `updatedAt`) VALUES
@@ -238,7 +341,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `phoneNumber`, `gender`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_token`
+-- Table structure for table `user_token`
 --
 
 CREATE TABLE `user_token` (
@@ -253,21 +356,21 @@ CREATE TABLE `user_token` (
 --
 
 --
--- Indeks untuk tabel `access_token`
+-- Indexes for table `access_token`
 --
 ALTER TABLE `access_token`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idUser` (`idUser`);
 
 --
--- Indeks untuk tabel `address`
+-- Indexes for table `address`
 --
 ALTER TABLE `address`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idUser` (`idUser`);
 
 --
--- Indeks untuk tabel `bag`
+-- Indexes for table `bag`
 --
 ALTER TABLE `bag`
   ADD PRIMARY KEY (`id`),
@@ -275,20 +378,20 @@ ALTER TABLE `bag`
   ADD KEY `idUser` (`idUser`);
 
 --
--- Indeks untuk tabel `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `detail_product`
+-- Indexes for table `detail_product`
 --
 ALTER TABLE `detail_product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idProduct` (`idProduct`);
 
 --
--- Indeks untuk tabel `detail_transaction`
+-- Indexes for table `detail_transaction`
 --
 ALTER TABLE `detail_transaction`
   ADD PRIMARY KEY (`id`),
@@ -296,14 +399,14 @@ ALTER TABLE `detail_transaction`
   ADD KEY `idProduct` (`idProduct`);
 
 --
--- Indeks untuk tabel `gallery`
+-- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idProduct` (`idProduct`);
 
 --
--- Indeks untuk tabel `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
@@ -311,21 +414,21 @@ ALTER TABLE `product`
   ADD KEY `idStore` (`idStore`);
 
 --
--- Indeks untuk tabel `store`
+-- Indexes for table `store`
 --
 ALTER TABLE `store`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idUser` (`idUser`);
 
 --
--- Indeks untuk tabel `transaction`
+-- Indexes for table `transaction`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idUser` (`idUser`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -333,139 +436,139 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `phoneNumber` (`phoneNumber`);
 
 --
--- Indeks untuk tabel `user_token`
+-- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `access_token`
+-- AUTO_INCREMENT for table `access_token`
 --
 ALTER TABLE `access_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `address`
+-- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `bag`
+-- AUTO_INCREMENT for table `bag`
 --
 ALTER TABLE `bag`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_product`
+-- AUTO_INCREMENT for table `detail_product`
 --
 ALTER TABLE `detail_product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `detail_transaction`
+-- AUTO_INCREMENT for table `detail_transaction`
 --
 ALTER TABLE `detail_transaction`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `gallery`
+-- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
--- AUTO_INCREMENT untuk tabel `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `store`
+-- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `transaction`
+-- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `user_token`
+-- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `address`
+-- Constraints for table `address`
 --
 ALTER TABLE `address`
   ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `bag`
+-- Constraints for table `bag`
 --
 ALTER TABLE `bag`
   ADD CONSTRAINT `bag_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `bag_ibfk_2` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `detail_product`
+-- Constraints for table `detail_product`
 --
 ALTER TABLE `detail_product`
   ADD CONSTRAINT `detail_product_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `detail_transaction`
+-- Constraints for table `detail_transaction`
 --
 ALTER TABLE `detail_transaction`
   ADD CONSTRAINT `detail_transaction_ibfk_1` FOREIGN KEY (`idTransaction`) REFERENCES `transaction` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `detail_transaction_ibfk_2` FOREIGN KEY (`idProduct`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `gallery`
+-- Constraints for table `gallery`
 --
 ALTER TABLE `gallery`
   ADD CONSTRAINT `gallery_ibfk_1` FOREIGN KEY (`idProduct`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `product`
+-- Constraints for table `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`idStore`) REFERENCES `store` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`idCategory`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `store`
+-- Constraints for table `store`
 --
 ALTER TABLE `store`
   ADD CONSTRAINT `store_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `transaction`
+-- Constraints for table `transaction`
 --
 ALTER TABLE `transaction`
   ADD CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

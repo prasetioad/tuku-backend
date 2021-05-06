@@ -14,7 +14,7 @@ exports.getAllCategory = (
       (err, resultCount) => {
         let totalData, page, perPage, totalPage;
         if (err) {
-          reject(new Error(err));
+          reject(new Error("Internal Server Error"));
         } else {
           totalData = resultCount[0].totalData;
           page = queryPage ? parseInt(queryPage) : 1;

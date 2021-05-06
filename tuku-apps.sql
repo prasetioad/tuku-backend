@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Bulan Mei 2021 pada 07.02
+-- Waktu pembuatan: 06 Bulan Mei 2021 pada 07.59
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.1
 
@@ -90,14 +90,6 @@ CREATE TABLE `address` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `address`
---
-
-INSERT INTO `address` (`id`, `idUser`, `type`, `name`, `phoneNumber`, `address`, `postalCode`, `city`, `isPrimary`, `createdAt`, `updatedAt`) VALUES
-(6, 12, 'Rumah', 'Raka', '085321098239', 'Jln. Suka-Suka', '302617', 'Bandung', 0, '2021-05-06 04:06:56', '2021-05-06 04:43:17'),
-(11, 12, 'Rumah', 'Raka', '085321098239', 'Jln. Suka-Suka', '302617', 'Bandung', 0, '2021-05-06 04:33:53', '2021-05-06 04:43:32');
 
 -- --------------------------------------------------------
 
@@ -227,13 +219,6 @@ CREATE TABLE `store` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `store`
---
-
-INSERT INTO `store` (`id`, `idUser`, `name`, `description`, `image`, `createdAt`, `updatedAt`) VALUES
-(7, 12, 'Bohdan Shop', 'None', 'images\\default_store.jpg', '2021-05-05 13:47:22', '2021-05-05 13:47:22');
-
 -- --------------------------------------------------------
 
 --
@@ -277,8 +262,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `phoneNumber`, `gender`, `dateOfBirth`, `image`, `active`, `role`, `createdAt`, `updatedAt`) VALUES
-(11, 'Chaerul Marwan', 'chaerulmarwan20@gmail.com', '$2b$10$FztsZ39UQa/CteVwMOG48.QNnI8FRRaJiNSlgXJeVJsqJ6EWrrOrC', 'None', 'Tidak didefinisikan', 'None', 'images\\default.png', 1, 2, '2021-05-05 13:46:17', '2021-05-05 14:16:39'),
-(12, 'Bohdan Ganteng', 'developerbohdan0@gmail.com', '$2b$10$PV0BZOpagK6LZ9XowtEZR.d2DF9HwrX/YQqCSdfd7H7uaHQgp9jZy', '082345675890', 'Tidak didefinisikan', 'None', 'images\\default.png', 1, 1, '2021-05-05 13:47:22', '2021-05-05 13:48:27');
+(17, 'Chaerul Marwan', 'chaerulmarwan20@gmail.com', '$2b$10$wU9Th0qxrk/f38QaTqK6HORgFd05TFtFMf23g0OIIUZ1SiEj0YTgu', 'None', 'Tidak didefinisikan', 'None', 'images\\default.png', 1, 2, '2021-05-06 05:57:17', '2021-05-06 05:58:25');
 
 -- --------------------------------------------------------
 
@@ -374,8 +358,7 @@ ALTER TABLE `transaction`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `phoneNumber` (`phoneNumber`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indeks untuk tabel `user_token`
@@ -452,13 +435,13 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

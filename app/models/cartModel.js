@@ -95,3 +95,19 @@ exports.deleteCart = (idCart, idUser) => {
     );
   });
 };
+
+exports.getCountCart = (id) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "SELECT COUNT(*) AS totalCart FROM ((bag INNER JOIN product ON bag.idProduct = product.id) INNER JOIN store ON bag.idStore = store.id) WHERE bag.idUser = ?",
+      id,
+      (err, result) => {
+        if (err) {
+          reject(new Error("Internal Server Error"));
+        } else {
+          resolve(result);
+        }
+      }
+    );
+  });
+};

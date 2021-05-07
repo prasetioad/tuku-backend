@@ -97,3 +97,20 @@ exports.delete = async (req, res) => {
     helper.printError(res, 500, err.message);
   }
 };
+
+exports.count = (req, res) => {
+  const id = req.auth.id;
+
+  cartModel
+    .getCountCart(id)
+    .then((result) => {
+      if (result[0].totalCart === 0) {
+        helper.printError(res, 400, "Cart not found");
+        return;
+      }
+      helper.printSuccess(res, 200, "Count cart successfully", result);
+    })
+    .catch((err) => {
+      helper.printError(res, 500, err.message);
+    });
+};

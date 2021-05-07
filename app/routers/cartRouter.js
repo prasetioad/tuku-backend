@@ -5,6 +5,7 @@ const auth = require("../middlewares/auth");
 
 router
   .get("/", auth.verification(), cartController.findAll)
+  .get("/count", auth.verification(), cartController.count)
   .post("/", auth.verification(), cartController.create)
   .put("/:id", auth.verification(), cartController.update)
   .delete("/", auth.verification(), cartController.delete);

@@ -67,6 +67,7 @@ exports.create = (req, res) => {
 
   const data = {
     idUser,
+    idStore: cart[0].idStore,
     address,
     subTotal,
     postage,
@@ -99,7 +100,7 @@ exports.create = (req, res) => {
       });
 
       cart.map(async (item, index) => {
-        await cartModel.deleteCart(item.idCart, idUser);
+        await cartModel.deleteCart(item.id, idUser);
       });
 
       cart.map(async (item, index) => {

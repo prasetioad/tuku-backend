@@ -10,7 +10,7 @@ exports.getAllOrderUser = (
 ) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "SELECT COUNT(*) AS totalData FROM transaction INNER JOIN users ON transaction.idUser = users.id WHERE transaction.idUser = ? AND transaction.status LIKE ?",
+      "SELECT COUNT(*) AS totalData FROM ((transaction INNER JOIN users ON transaction.idUser = users.id) INNER JOIN store ON transaction.idStore = store.id) WHERE transaction.idUser = ? AND transaction.status LIKE ?",
       [id, `%${status}%`],
       (err, resultCount) => {
         let totalData, page, perPage, totalPage;
@@ -24,7 +24,7 @@ exports.getAllOrderUser = (
         }
         const firstData = perPage * page - perPage;
         connection.query(
-          `SELECT transaction.id, users.name, users.email, transaction.address, transaction.subTotal, transaction.postage, transaction.total, transaction.paymentMethod, transaction.status FROM transaction INNER JOIN users ON transaction.idUser = users.id WHERE transaction.idUser = ? AND transaction.status LIKE ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
+          `SELECT transaction.id, users.name, users.email, store.name AS store, transaction.address, transaction.subTotal, transaction.postage, transaction.total, transaction.paymentMethod, transaction.status FROM ((transaction INNER JOIN users ON transaction.idUser = users.id) INNER JOIN store ON transaction.idStore = store.id) WHERE transaction.idUser = ? AND transaction.status LIKE ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
           [id, `%${status}%`, firstData, perPage],
           (err, result) => {
             if (!err) {

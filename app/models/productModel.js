@@ -13,7 +13,7 @@ exports.getAllProduct = (
 ) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "SELECT COUNT(*) AS totalData FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.title LIKE ? AND product.size LIKE ? AND product.color LIKE ? AND category.name LIKE ? AND store.name LIKE ?",
+      "SELECT COUNT(*) AS totalData FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.title LIKE ? AND product.size LIKE ? AND product.color LIKE ? AND category.name LIKE ? AND store.name LIKE ? AND product.isArchived = false",
       [
         `%${keyword}%`,
         `%${size}%`,
@@ -33,7 +33,7 @@ exports.getAllProduct = (
         }
         const firstData = perPage * page - perPage;
         connection.query(
-          `SELECT product.id, product.title, category.name AS category, store.name AS brand, product.image, product.size, product.color, product.price, product.conditions, product.description, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.title LIKE ? AND product.size LIKE ? AND product.color LIKE ? AND category.name LIKE ? AND store.name LIKE ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
+          `SELECT product.id, product.title, category.name AS category, store.name AS brand, product.image, product.size, product.color, product.price, product.conditions, product.description, product.stock, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.title LIKE ? AND product.size LIKE ? AND product.color LIKE ? AND category.name LIKE ? AND store.name LIKE ? AND product.isArchived = false ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
           [
             `%${keyword}%`,
             `%${size}%`,
@@ -72,7 +72,7 @@ exports.getAllPopular = (queryPage, queryPerPage, sortBy, orderBy) => {
         }
         const firstData = perPage * page - perPage;
         connection.query(
-          `SELECT product.id, product.title, category.name AS category, store.name AS brand, product.image, product.price, product.conditions, product.description, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.isPopular = true ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
+          `SELECT product.id, product.title, category.name AS category, store.name AS brand, product.image, product.price, product.conditions, product.description, product.stock, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.isPopular = true AND product.isArchived = false ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
           [firstData, perPage],
           (err, result) => {
             if (!err) {
@@ -90,7 +90,7 @@ exports.getAllPopular = (queryPage, queryPerPage, sortBy, orderBy) => {
 exports.getProductById = (id) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "SELECT product.id, product.title, category.name AS category, store.name AS brand, store.id AS idBrand, product.image, product.price, product.conditions, product.description, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.id = ?",
+      "SELECT product.id, product.title, category.name AS category, store.name AS brand, store.id AS idBrand, product.image, product.price, product.conditions, product.description, product.stock, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.id = ? AND product.isArchived = false",
       id,
       (err, result) => {
         if (!err) {
@@ -126,7 +126,7 @@ exports.getProductByCategory = (
         }
         const firstData = perPage * page - perPage;
         connection.query(
-          `SELECT product.id, product.title, category.name AS category, store.name AS brand, product.image, product.price, product.conditions, product.description, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE category.id = ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
+          `SELECT product.id, product.title, category.name AS category, store.name AS brand, product.image, product.price, product.conditions, product.description, product.stock, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE category.id = ? AND product.isArchived = false ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
           [id, firstData, perPage],
           (err, result) => {
             if (!err) {

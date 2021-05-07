@@ -6,6 +6,7 @@ exports.findAll = (req, res) => {
   const keyword = req.query.keyword ? req.query.keyword : "";
   const sortBy = req.query.sortBy ? req.query.sortBy : "id";
   const order = req.query.order ? req.query.order : "ASC";
+
   categoryModel
     .getAllCategory(page, perPage, keyword, sortBy, order)
     .then(([totalData, totalPage, result, page, perPage]) => {

@@ -82,11 +82,11 @@ exports.update = (req, res) => {
 
 exports.delete = async (req, res) => {
   const idUser = req.auth.id;
-  const idCart = req.body.idCart;
+  const cart = req.body.cart;
 
   try {
-    for (let i = 0; i < idCart.length; i++) {
-      const result = await cartModel.deleteCart(idCart[i], idUser);
+    for (let i = 0; i < cart.length; i++) {
+      const result = await cartModel.deleteCart(cart[i], idUser);
       if (result.affectedRows === 0) {
         helper.printError(res, 400, "Error deleting cart");
         return;

@@ -90,7 +90,7 @@ exports.getAllPopular = (queryPage, queryPerPage, sortBy, orderBy) => {
 exports.getProductById = (id) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "SELECT product.id, product.title, category.name AS category, store.name AS brands, product.image, product.price, product.conditions, product.description, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.id = ?",
+      "SELECT product.id, product.title, category.name AS category, store.name AS brand, store.id AS idBrand, product.image, product.price, product.conditions, product.description, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.id = ?",
       id,
       (err, result) => {
         if (!err) {

@@ -10,6 +10,7 @@ exports.findAll = (req, res) => {
   const brand = req.query.brand ? req.query.brand : "";
   const sortBy = req.query.sortBy ? req.query.sortBy : "product.id";
   const order = req.query.order ? req.query.order : "DESC";
+
   productModel
     .getAllProduct(
       page,
@@ -47,6 +48,7 @@ exports.findAllPopular = (req, res) => {
   const { page, perPage } = req.query;
   const sortBy = req.query.sortBy ? req.query.sortBy : "product.id";
   const order = req.query.order ? req.query.order : "ASC";
+
   productModel
     .getAllPopular(page, perPage, sortBy, order)
     .then(([totalData, totalPage, result, page, perPage]) => {

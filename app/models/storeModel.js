@@ -69,3 +69,22 @@ exports.findProduct = (idStore, title) => {
             })
     })
 }
+exports.updateStore = (id, dataStore) => {
+    return new Promise((resolve, reject) => {
+        connection.query(`UPDATE store SET ? WHERE id = ?`, [dataStore, id],
+            (err, result) => {
+                if (!err) {
+                    connection.query(`SELECT * FROM store WHERE id = ?`, id,
+                        (err, result) => {
+                            if (!err) {
+                                resolve(result)
+                            } else {
+                                reject(new Error("Internal server error"))
+                            }
+                        })
+                } else {
+                    reject(new Error("Internal server error"))
+                }
+            })
+    })
+}

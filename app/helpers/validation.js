@@ -55,4 +55,13 @@ module.exports = {
     });
     return schema.validate(users);
   },
+  validationUpdateStore: (users) => {
+    const schema = Joi.object({
+      storeName: Joi.string().required(),
+      email: Joi.string().email().required(),
+      phoneNumber: Joi.number().required(),
+      description: Joi.string().required(),
+    });
+    return schema.validate(users);
+  },
 };

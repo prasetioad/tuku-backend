@@ -1,8 +1,12 @@
 const storeModel = require("../models/storeModel")
+const usersModel = require("../models/usersModel")
 const helper = require("../helpers/printHelper");
+const validation = require("../helpers/validation")
+const fs = require("fs");
+const path = require("path");
 
 exports.findStore = (req, res) => {
-    const userID = 17 //req.auth.id
+    const userID = req.auth.id
     storeModel
         .findStore(userID)
         .then((result) => {
@@ -13,7 +17,7 @@ exports.findStore = (req, res) => {
         })
 }
 exports.myProduct = async (req, res) => {
-    const userID = 5 //req.auth.id
+    const userID = req.auth.id
     const { sortBy, orderBy, page, perPage } = req.query
 
 
@@ -39,7 +43,7 @@ exports.myProduct = async (req, res) => {
 
 }
 exports.insertProduct = async (req, res) => {
-    const userID = 4 //req.auth.id
+    const userID = req.auth.id
     const { title, price, conditions, description, idCategory } = req.body
 
     const resultStore = await storeModel.findStore(userID)
@@ -74,14 +78,68 @@ exports.insertProduct = async (req, res) => {
             helper.printError(res, 500, err.message);
         })
 }
-exports.updateStore = (req, res) => {
-    let image;
-    if (!req.file) {
-        image = "images\\default.png";
-    } else {
-        image = req.file.path;
-    }
-    const idUser = 4 //req.auth.id
-    const { name, email, phoneNumber, description } = req.body
+exports.updateStore = async (req, res) => {
+    const validate = validation.validationUpdateStore(req.body)
     
+    if (validate.error) {
+        helper.printError(res, 400, validate.error.details[0].message);
+        return;
+    }
+    
+    const id = 5 //req.auth.id;
+
+    const { storeName, email, phoneNumber, description } = req.body;
+
+    const dataStore = {
+        name: storeName,
+        description
+    }
+    const dataUser = {
+        email,
+        phoneNumber
+    };
+
+    usersModel
+        .findUser(id, "update")
+        .then((result) => {
+            return usersModel.updateUsers(id, dataUser);
+        })
+        .then((result) => {
+            delete result[0].password;
+            delete result[0].active;
+            delete result[0].createdAt;
+            delete result[0].updatedAt;
+
+            let image;
+            if (!req.file) {
+                image = result[0].image;
+            } else {
+                const oldImage = result[0].image;
+                if (oldImage !== "images\\default.png") {
+                    removeImage(oldImage);
+                }
+                image = req.file.path;
+            }
+            dataStore.image = image;
+            storeModel
+                .updateStore(id, dataStore)
+                .then((result) => {
+                    helper.printSuccess(res, 200, "update store successfull", result);
+                })
+                .catch((err) => {
+                    helper.printError(res, 500, err.message);
+                })
+            //   helper.printSuccess(res, 200, "Users has been updated", result);
+        })
+        .catch((err) => {
+            if (err.message === "Internal server error") {
+                helper.printError(res, 500, err.message);
+            }
+            helper.printError(res, 400, err.message);
+        });
+
 }
+const removeImage = (filePath) => {
+    filePath = path.join(__dirname, "../..", filePath);
+    fs.unlink(filePath, (err) => new Error(err));
+  };

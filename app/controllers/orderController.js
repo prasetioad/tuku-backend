@@ -95,7 +95,6 @@ exports.create = (req, res) => {
           size: item.size,
           color: item.color,
           qty: item.qty,
-          price: item.price,
         };
         await orderModel.createOrderDetail(dataOrderDetail);
       });

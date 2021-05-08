@@ -17,7 +17,7 @@ exports.getAllCart = (queryPage, queryPerPage, sortBy, orderBy, id) => {
         }
         const firstData = perPage * page - perPage;
         connection.query(
-          `SELECT bag.id, bag.idProduct, product.image, product.title, store.name AS brand, bag.size, bag.qty, bag.price, bag.total FROM ((bag INNER JOIN product ON bag.idProduct = product.id) INNER JOIN store ON bag.idStore = store.id) WHERE bag.idUser = ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
+          `SELECT bag.id, bag.idProduct, product.image, product.title, bag.idStore, store.name AS brand, bag.color, bag.size, bag.qty, bag.price, bag.total FROM ((bag INNER JOIN product ON bag.idProduct = product.id) INNER JOIN store ON bag.idStore = store.id) WHERE bag.idUser = ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
           [id, firstData, perPage],
           (err, result) => {
             if (!err) {

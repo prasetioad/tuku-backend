@@ -100,6 +100,6 @@ Blanja App adalah web aplikasi jual beli secara online yang memudahkan penggunaa
 
 #### VISIT PROJECT
 
-- [Frontend](https://github.com/ErwinSaputraSulistio/Blanja-FE)
-- [Website]()
+- :white_check_mark: [Frontend](https://github.com/ErwinSaputraSulistio/Blanja-FE)
+- :rocket: [Website]()
 

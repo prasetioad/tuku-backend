@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Bulan Mei 2021 pada 10.14
+-- Waktu pembuatan: 08 Bulan Mei 2021 pada 20.31
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.1
 
@@ -72,7 +72,16 @@ INSERT INTO `access_token` (`id`, `idUser`, `accessToken`, `ipAddress`, `created
 (29, 11, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiTm9uZSIsImdlbmRlciI6IlRpZGFrIGRpZGVmaW5pc2lrYW4iLCJkYXRlT2ZCaXJ0aCI6Ik5vbmUiLCJpbWFnZSI6ImltYWdlc1xcZGVmYXVsdC5wbmciLCJyb2xlIjoyLCJpYXQiOjE2MjAyNzcyNzYsImV4cCI6MTYyMDM2MzY3Nn0.mXy9cmSIIVOAiJODQUKlkWW2l1Ki40ydeHYayYNm5po', '192.168.43.232', '2021-05-06 05:01:16', '2021-05-06 05:01:16'),
 (30, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiTm9uZSIsImdlbmRlciI6IlRpZGFrIGRpZGVmaW5pc2lrYW4iLCJkYXRlT2ZCaXJ0aCI6Ik5vbmUiLCJpbWFnZSI6ImltYWdlc1xcZGVmYXVsdC5wbmciLCJyb2xlIjoyLCJpYXQiOjE2MjAzNTM5NDEsImV4cCI6MTYyMDQ0MDM0MX0.x6732I_cOyt0Y4TKjfFhAqygWXFWMbUYp5SADm0vUgA', '192.168.43.107', '2021-05-07 02:19:01', '2021-05-07 02:19:01'),
 (31, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiTm9uZSIsImdlbmRlciI6IlRpZGFrIGRpZGVmaW5pc2lrYW4iLCJkYXRlT2ZCaXJ0aCI6Ik5vbmUiLCJpbWFnZSI6ImltYWdlc1xcZGVmYXVsdC5wbmciLCJyb2xlIjoyLCJpYXQiOjE2MjAzNjc4MDEsImV4cCI6MTYyMDQ1NDIwMX0.p5JT5AT8Efp2qrpERpSc9sy4B9X6t66z6XGoGdpOWEk', '192.168.43.107', '2021-05-07 06:10:01', '2021-05-07 06:10:01'),
-(32, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiTm9uZSIsImdlbmRlciI6IlRpZGFrIGRpZGVmaW5pc2lrYW4iLCJkYXRlT2ZCaXJ0aCI6Ik5vbmUiLCJpbWFnZSI6ImltYWdlc1xcZGVmYXVsdC5wbmciLCJyb2xlIjoyLCJpYXQiOjE2MjAzNzI2ODMsImV4cCI6MTYyMDQ1OTA4M30.1lVBS19XUSjgK94wJ8H9fmS-lxSc-YzEEzGKGpcX4EY', '192.168.43.107', '2021-05-07 07:31:23', '2021-05-07 07:31:23');
+(32, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiTm9uZSIsImdlbmRlciI6IlRpZGFrIGRpZGVmaW5pc2lrYW4iLCJkYXRlT2ZCaXJ0aCI6Ik5vbmUiLCJpbWFnZSI6ImltYWdlc1xcZGVmYXVsdC5wbmciLCJyb2xlIjoyLCJpYXQiOjE2MjAzNzI2ODMsImV4cCI6MTYyMDQ1OTA4M30.1lVBS19XUSjgK94wJ8H9fmS-lxSc-YzEEzGKGpcX4EY', '192.168.43.107', '2021-05-07 07:31:23', '2021-05-07 07:31:23'),
+(33, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiTm9uZSIsImdlbmRlciI6IlRpZGFrIGRpZGVmaW5pc2lrYW4iLCJkYXRlT2ZCaXJ0aCI6Ik5vbmUiLCJpbWFnZSI6ImltYWdlc1xcZGVmYXVsdC5wbmciLCJyb2xlIjoyLCJpYXQiOjE2MjAzNzg2NjYsImV4cCI6MTYyMDQ2NTA2Nn0.I2dTrHiNHAYfIT82Pa3Tr9052_aCrVBfKBK83hCfKjQ', '192.168.43.107', '2021-05-07 09:11:06', '2021-05-07 09:11:06'),
+(34, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiTm9uZSIsImdlbmRlciI6IlRpZGFrIGRpZGVmaW5pc2lrYW4iLCJkYXRlT2ZCaXJ0aCI6Ik5vbmUiLCJpbWFnZSI6ImltYWdlc1xcZGVmYXVsdC5wbmciLCJyb2xlIjoxLCJpYXQiOjE2MjAzNzk0NjgsImV4cCI6MTYyMDQ2NTg2OH0.WR-wwDpCEimVlqgiVFUJq7HjelWz6Yo46i-Jt7MXI2w', '192.168.43.107', '2021-05-07 09:24:28', '2021-05-07 09:24:28'),
+(35, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiVGlkYWsgZGlkZWZpbmlzaWthbiIsImRhdGVPZkJpcnRoIjoiTm9uZSIsImltYWdlIjoiaW1hZ2VzXFxkZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQzNDg4NywiZXhwIjoxNjIwNTIxMjg3fQ.rYgHytl_MByjsgUjcjd-P1v6VSb9EvmvUpqEe9setAc', '192.168.43.232', '2021-05-08 00:48:07', '2021-05-08 00:48:07'),
+(36, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiVGlkYWsgZGlkZWZpbmlzaWthbiIsImRhdGVPZkJpcnRoIjoiTm9uZSIsImltYWdlIjoiaW1hZ2VzXFxkZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQzNDkxMSwiZXhwIjoxNjIwNTIxMzExfQ.Z9UF5ebWrei_fwsCeGAe1ALl4qJP-K0Cdfxs33bjxQU', '192.168.43.232', '2021-05-08 00:48:31', '2021-05-08 00:48:31'),
+(37, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiVGlkYWsgZGlkZWZpbmlzaWthbiIsImRhdGVPZkJpcnRoIjoiTm9uZSIsImltYWdlIjoiaW1hZ2VzXFxkZWZhdWx0LnBuZyIsInJvbGUiOjEsImlhdCI6MTYyMDQzOTU0OSwiZXhwIjoxNjIwNTI1OTQ5fQ.x5loolF7Og_qCIZr32USY02huxmg8nbbgC40LsemLCY', '192.168.43.232', '2021-05-08 02:05:49', '2021-05-08 02:05:49'),
+(38, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiVGlkYWsgZGlkZWZpbmlzaWthbiIsImRhdGVPZkJpcnRoIjoiTm9uZSIsImltYWdlIjoiaW1hZ2VzXFxkZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQzOTgwNywiZXhwIjoxNjIwNTI2MjA3fQ.v4soZmDRl5JahtpUXwBNl22Na-aPV3868evCfdolcjg', '192.168.43.232', '2021-05-08 02:10:07', '2021-05-08 02:10:07'),
+(39, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiVGlkYWsgZGlkZWZpbmlzaWthbiIsImRhdGVPZkJpcnRoIjoiTm9uZSIsImltYWdlIjoiaW1hZ2VzXFxkZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQ0OTI5MCwiZXhwIjoxNjIwNTM1NjkwfQ.mUWuUVWe1dPqjXNk22QjXJiF-jbU-YM2vm3AoWnQgTM', '192.168.43.232', '2021-05-08 04:48:10', '2021-05-08 04:48:10'),
+(40, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiVGlkYWsgZGlkZWZpbmlzaWthbiIsImRhdGVPZkJpcnRoIjoiTm9uZSIsImltYWdlIjoiaW1hZ2VzXFxkZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQ3ODAzNSwiZXhwIjoxNjIwNTY0NDM1fQ.Q-8m8pkSRt22OcdkQnmzZUnNTHCLnp-4uY1H1UMnUTw', '192.168.43.107', '2021-05-08 12:47:15', '2021-05-08 12:47:15'),
+(41, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiTGFraS1sYWtpIiwiZGF0ZU9mQmlydGgiOiIxMCBBZ3VzdHVzIDIwMDYiLCJpbWFnZSI6ImltYWdlc1xcMTYyMDQ3ODMwNTkyNy1kZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQ5NzcwMywiZXhwIjoxNjIwNTg0MTAzfQ.lR1PMdOc9o-gDAt-C_EO-pb4e6kp2WNgSzyG4VUo_bE', '192.168.43.107', '2021-05-08 18:15:03', '2021-05-08 18:15:03');
 
 -- --------------------------------------------------------
 
@@ -99,7 +108,8 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`id`, `idUser`, `type`, `name`, `phoneNumber`, `address`, `postalCode`, `city`, `isPrimary`, `createdAt`, `updatedAt`) VALUES
-(12, 17, 'Rumah', 'Chaerul Marwan', '081224685502', 'Ganeas, Sumedang, Jawa Barat', '301610', 'Sumedang', 1, '2021-05-07 07:25:21', '2021-05-07 07:25:21');
+(18, 17, 'asdsad', 'sadasd', 'asdasd', 'sadasd', 'asdasd', 'asdasdasd', 1, '2021-05-08 18:03:06', '2021-05-08 18:18:36'),
+(19, 17, 'sadasd', 'sadsad', '34234324234', 'sdfsdsdf', '3243234', 'sfsdfsdf', 0, '2021-05-08 18:04:46', '2021-05-08 18:18:36');
 
 -- --------------------------------------------------------
 
@@ -112,9 +122,11 @@ CREATE TABLE `bag` (
   `idProduct` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
   `idStore` int(11) NOT NULL,
-  `size` longtext NOT NULL,
+  `size` varchar(50) NOT NULL,
+  `color` varchar(50) NOT NULL,
   `qty` int(11) NOT NULL,
   `price` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -157,8 +169,8 @@ CREATE TABLE `detail_transaction` (
   `idTransaction` int(11) NOT NULL,
   `idProduct` int(11) NOT NULL,
   `size` varchar(50) NOT NULL,
+  `color` varchar(50) NOT NULL,
   `qty` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -167,11 +179,12 @@ CREATE TABLE `detail_transaction` (
 -- Dumping data untuk tabel `detail_transaction`
 --
 
-INSERT INTO `detail_transaction` (`id`, `idUser`, `idTransaction`, `idProduct`, `size`, `qty`, `price`, `createdAt`, `updatedAt`) VALUES
-(9, 17, 10, 3, 'S', 2, 6000, '2021-05-07 06:46:48', '2021-05-07 06:46:48'),
-(10, 17, 10, 4, 'M', 2, 6000, '2021-05-07 06:46:48', '2021-05-07 06:46:48'),
-(11, 17, 11, 3, 'S', 2, 6000, '2021-05-07 07:31:41', '2021-05-07 07:31:41'),
-(12, 17, 11, 4, 'M', 2, 6000, '2021-05-07 07:31:41', '2021-05-07 07:31:41');
+INSERT INTO `detail_transaction` (`id`, `idUser`, `idTransaction`, `idProduct`, `size`, `color`, `qty`, `createdAt`, `updatedAt`) VALUES
+(23, 17, 17, 17, 'L', '#1A1A1A', 2, '2021-05-08 09:58:05', '2021-05-08 09:58:05'),
+(24, 17, 17, 5, '40', '#1A1A1A', 1, '2021-05-08 09:58:05', '2021-05-08 09:58:05'),
+(25, 17, 18, 12, 'M', '#1A1A1A', 1, '2021-05-08 10:02:33', '2021-05-08 10:02:33'),
+(26, 17, 19, 17, 'M', '#1A1A1A', 1, '2021-05-08 18:24:20', '2021-05-08 18:24:20'),
+(27, 17, 20, 17, 'S', '#D84242', 1, '2021-05-08 18:28:42', '2021-05-08 18:28:42');
 
 -- --------------------------------------------------------
 
@@ -270,6 +283,7 @@ CREATE TABLE `product` (
   `stock` int(11) NOT NULL,
   `rating` int(11) NOT NULL,
   `isPopular` tinyint(1) NOT NULL,
+  `isArchived` tinyint(1) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -278,23 +292,23 @@ CREATE TABLE `product` (
 -- Dumping data untuk tabel `product`
 --
 
-INSERT INTO `product` (`id`, `title`, `idCategory`, `idStore`, `image`, `price`, `conditions`, `description`, `size`, `color`, `stock`, `rating`, `isPopular`, `createdAt`, `updatedAt`) VALUES
-(2, 'ZX 8000 GOLF', 4, 8, 'images\\zx%201k%20boost.png', 2300000, 'new', 'Lace up for tee time. These ZX 8000 Golf Shoes are part of the adidas A-ZX series, a global platform spanning a multitude of cultural touch points to showcase the diverse world of sneakers. Representing the letter G, this golf-inspired pair flash a glossy, embossed leather upper reminiscent of a golf ball. Neon accents and a functional ball marker and tee holder design make them stand out even more.', '38 39 40', 'Black White', 50, 5, 0, '2021-05-05 13:56:15', '2021-05-06 16:12:46'),
-(3, 'LITE RACER 2.0', 4, 8, 'images\\LITE%20RACER%202.0.png', 300000, 'new', 'Bring sport attitude into everyday life. These adidas running-inspired shoes feature a knit upper to keep you cool for school, work or play. Lightweight cushioning adds comfort during power walks and strolls in the park.', '38 39 40', 'Black Red White', 30, 4, 0, '2021-05-05 13:59:41', '2021-05-07 07:31:41'),
-(4, 'ZX 1K BOOST', 4, 8, 'images\\zx%201k%20boost.png', 1600000, 'new', 'In a constantly evolving world, keeping up is just part of the routine. Stay on top of it in these airy knit mesh adidas shoes. The ZX series has merged technology with culture since the \'80s. Today a combination of Boost and EVA cushioning keeps you comfortable as you charge through the day.', '38 39 40', 'Black White', 30, 4, 1, '2021-05-05 14:02:11', '2021-05-07 07:31:41'),
-(5, 'SUPERSTAR', 4, 8, 'images\\SUPERSTAR.png', 1600000, 'new', 'Originally made for basketball courts in the \'70s. Celebrated by hip hop royalty in the \'80s. The adidas Superstar shoe is now a lifestyle staple for streetwear enthusiasts. The world-famous shell toe feature remains, providing style and protection. Just like it did on the B-ball courts back in the day. Now, whether at a festival or walking in the street you can enjoy yourself without the fear of being stepped on. The serrated 3-Stripes detail and adidas Superstar box logo adds OG authenticity to your look.', '38 39 40', 'White', 50, 4, 1, '2021-05-05 14:07:09', '2021-05-06 16:14:09'),
-(6, 'FULL-ZIP STADIUM HOODIE', 2, 8, 'images\\FULL-ZIP%20STADIUM%20HOODIE.png', 1000000, 'new', 'Take a moment to let it all sink in. You gave it your all. You pushed through, mentally and physically. As you sit on that locker room bench lacing up your shoes, still feeling the energy vibrating through your body, remember that you\'re the one who got yourself there. Then zip into this adidas hoodie and go celebrate that. The soft fabric and snug ribbed details reward tired muscles with comfort. You deserve it.', 'S M L XL', 'Black White', 50, 1, 1, '2021-05-05 14:07:09', '2021-05-06 16:15:33'),
-(7, 'PLECKGATE TRACK JACKET', 2, 8, 'images\\PLECKGATE%20TRACK%20JACKET.png', 2800000, 'new', 'Terracewear meets dance hall hardwood. Inspired by the Northern Soul movement that hit England during the 1970s, this adidas track jacket takes a silhouette made famous in the stands and infuses it with carefree attitude. A stand-up collar and a bonded zip bring tailored style to your casual look.', 'S M L XL', 'Black White', 50, 4, 1, '2021-05-05 14:07:09', '2021-05-06 16:15:37'),
-(8, 'BALANTA 96 TRACK TOP', 2, 8, 'images\\BALANTA%2096%20TRACK%20TOP.png', 750000, 'new', 'Pay homage to the spirit of sport. Zip into this track jacket and honour the connection and unity found in shared experience. Wins and losses. The beauty of the game. This lightweight layer blends the striking club colours of Morocco and the Netherlands into an archival design, for a look that keeps your look right on pitch.', 'S M L XL', 'Black Orange White', 40, 4, 1, '2021-05-05 14:07:09', '2021-05-06 16:15:17'),
-(9, 'BIG TREFOIL ABSTRACT TRACK TOP', 2, 8, 'images\\BIG%20TREFOIL%20ABSTRACT%20TRACK%20TOP.png', 900000, 'new', 'You\'re drawn to that quality that never goes out of style. A little edgy, a bit unexpected in its originality. Like the signature adidas track jacket. The classic look of sports heritage has been defined by adidas for decades. Others might build on the 3-Stripes foundation, but can anyone else really compete with an icon?', 'S M L XL', 'Black Orange', 35, 4, 1, '2021-05-05 14:07:09', '2021-05-06 16:16:03'),
-(10, 'Nike Sportswear', 1, 8, 'images\\Nike%20Sportswear.png', 399000, 'new', 'Sushi and sneaker connoisseurs behold: The Nike Sportswear T-Shirt sets you up with soft, cotton fabric and a Nike graphic on the chest for total shoeshi fantasy.', 'S M L XL', 'Black', 40, 4, 1, '2021-05-05 14:11:27', '2021-05-06 16:16:53'),
-(11, 'Jordan Jumpman Classics', 1, 8, 'images\\Jordan%20Jumpman%20Classics.png', 399000, 'new', 'Ready for take-off. The Jordan Jumpman Classics T-Shirt riffs on an iconic Michael Jordan image with a fresh, bold-letter graphic.', 'S M L XL', 'White', 100, 4, 1, '2021-05-05 14:11:27', '2021-05-06 16:17:03'),
-(12, 'RUN LOGO GRAPHIC TEE', 1, 8, 'images\\RUN%20LOGO%20GRAPHIC%20TEE.png', 299000, 'new', 'Always one run away from a good mood. Slip on this adidas running t-shirt, and let the endorphins multiply. Not only does it keep you dry with moisture-absorbing AEROREADY, but it\'s also made with the planet in mind. A tee you\'ll feel good wearing for more reasons than one. This product is made with Primegreen, a series of high-performance recycled materials.', 'S M L XL', 'Black', 70, 4, 1, '2021-05-05 14:11:27', '2021-05-06 16:17:20'),
-(13, 'RUNNING TANK TOP', 1, 8, 'images\\HEAT.RDY%20RUNNING%20TANK%20TOP.png', 550000, 'new', 'No matter how high the temperature rises, you\'re ready. Slip on this light and breathable adidas tank top, knowing HEAT.RDY will manage moisture and keep air flowing with every stride you take. And knowing the recycled content is helping to end plastic waste. This product is made with Primegreen, a series of high-performance recycled materials.', 'S M L XL', 'Black', 45, 4, 1, '2021-05-05 14:11:27', '2021-05-06 16:17:36'),
-(14, 'BADGE OF SPORT SHORTS', 5, 8, 'images\\BADGE%20OF%20SPORT%20SHORTS.png', 450000, 'new', 'Whether you\'re headed to the gym or out with your crew, pull on these casual shorts. They\'re made of soft cotton-blend French terry in an easy-to-wear fit that\'s not too loose or too tight. The drawcord-adjustable elastic waist lets you personalise the fit.', 'S M L XL', 'Black White', 50, 4, 1, '2021-05-05 14:14:54', '2021-05-06 16:17:48'),
-(16, 'Nike Sportswear City Made', 3, 8, 'images\\OWN%20THE%20RUN%20CELEBRATION%20SHORTS.png', 1249000, 'new', 'The Nike Air Woven Trousers update a style staple with Ripstop fabric and reinforced panels. A tapered leg design and utility details provide a clean, tactical look.', 'S M L XL', 'Black Red', 45, 4, 1, '2021-05-05 14:14:54', '2021-05-06 16:17:59'),
-(17, 'Jordan Dri-FIT Zion', 3, 8, 'images\\Jordan%20Dri-FIT%20Zion.png', 1429000, 'new', 'Zion likes versatile clothing that he can wear while hanging with family and friends—and then go and hoop in.The Jordan Dri-FIT Zion Trousers tick all boxes, with smooth, sweat-wicking fleece and a design that\'s fit for moving on and off the court.', 'S M L XL', 'Black White', 40, 4, 1, '2021-05-05 14:14:54', '2021-05-06 16:18:18'),
-(18, 'OWN THE RUN CELEBRATION SHORTS', 5, 8, 'images\\BADGE%20OF%20SPORT%20SHORTS.png', 450000, 'new', 'Every run has its share of triumphs and defeats. When you stay comfortable in these running shorts, it\'s easier to appreciate the process. AEROREADY wicks moisture, and the cut gives you free movement through your stride. Graphic panels add a heavy dose of adidas pride.', 'S M L XL', 'Black White', 35, 4, 1, '2021-05-05 14:14:54', '2021-05-06 16:18:36');
+INSERT INTO `product` (`id`, `title`, `idCategory`, `idStore`, `image`, `price`, `conditions`, `description`, `size`, `color`, `stock`, `rating`, `isPopular`, `isArchived`, `createdAt`, `updatedAt`) VALUES
+(2, 'ZX 8000 GOLF', 4, 8, 'images\\zx%201k%20boost.png', 2300000, 'new', 'Lace up for tee time. These ZX 8000 Golf Shoes are part of the adidas A-ZX series, a global platform spanning a multitude of cultural touch points to showcase the diverse world of sneakers. Representing the letter G, this golf-inspired pair flash a glossy, embossed leather upper reminiscent of a golf ball. Neon accents and a functional ball marker and tee holder design make them stand out even more.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 100, 5, 0, 1, '2021-05-05 13:56:15', '2021-05-08 03:16:21'),
+(3, 'LITE RACER 2.0', 4, 8, 'images\\LITE%20RACER%202.0.png', 300000, 'new', 'Bring sport attitude into everyday life. These adidas running-inspired shoes feature a knit upper to keep you cool for school, work or play. Lightweight cushioning adds comfort during power walks and strolls in the park.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 30, 4, 0, 0, '2021-05-05 13:59:41', '2021-05-08 03:16:18'),
+(4, 'ZX 1K BOOST', 4, 8, 'images\\zx%201k%20boost.png', 1600000, 'new', 'In a constantly evolving world, keeping up is just part of the routine. Stay on top of it in these airy knit mesh adidas shoes. The ZX series has merged technology with culture since the \'80s. Today a combination of Boost and EVA cushioning keeps you comfortable as you charge through the day.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 20, 4, 1, 0, '2021-05-05 14:02:11', '2021-05-08 03:16:15'),
+(5, 'SUPERSTAR', 4, 8, 'images\\SUPERSTAR.png', 1000000, 'new', 'Originally made for basketball courts in the \'70s. Celebrated by hip hop royalty in the \'80s. The adidas Superstar shoe is now a lifestyle staple for streetwear enthusiasts. The world-famous shell toe feature remains, providing style and protection. Just like it did on the B-ball courts back in the day. Now, whether at a festival or walking in the street you can enjoy yourself without the fear of being stepped on. The serrated 3-Stripes detail and adidas Superstar box logo adds OG authenticity to your look.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 49, 4, 1, 0, '2021-05-05 14:07:09', '2021-05-08 09:58:05'),
+(6, 'FULL-ZIP STADIUM HOODIE', 2, 8, 'images\\FULL-ZIP%20STADIUM%20HOODIE.png', 1000000, 'new', 'Take a moment to let it all sink in. You gave it your all. You pushed through, mentally and physically. As you sit on that locker room bench lacing up your shoes, still feeling the energy vibrating through your body, remember that you\'re the one who got yourself there. Then zip into this adidas hoodie and go celebrate that. The soft fabric and snug ribbed details reward tired muscles with comfort. You deserve it.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 50, 1, 1, 0, '2021-05-05 14:07:09', '2021-05-08 03:15:57'),
+(7, 'PLECKGATE TRACK JACKET', 2, 8, 'images\\PLECKGATE%20TRACK%20JACKET.png', 2800000, 'new', 'Terracewear meets dance hall hardwood. Inspired by the Northern Soul movement that hit England during the 1970s, this adidas track jacket takes a silhouette made famous in the stands and infuses it with carefree attitude. A stand-up collar and a bonded zip bring tailored style to your casual look.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 50, 4, 1, 0, '2021-05-05 14:07:09', '2021-05-08 03:15:53'),
+(8, 'BALANTA 96 TRACK TOP', 2, 8, 'images\\BALANTA%2096%20TRACK%20TOP.png', 750000, 'new', 'Pay homage to the spirit of sport. Zip into this track jacket and honour the connection and unity found in shared experience. Wins and losses. The beauty of the game. This lightweight layer blends the striking club colours of Morocco and the Netherlands into an archival design, for a look that keeps your look right on pitch.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 40, 4, 1, 0, '2021-05-05 14:07:09', '2021-05-08 03:15:51'),
+(9, 'BIG TREFOIL ABSTRACT TRACK TOP', 2, 8, 'images\\BIG%20TREFOIL%20ABSTRACT%20TRACK%20TOP.png', 900000, 'new', 'You\'re drawn to that quality that never goes out of style. A little edgy, a bit unexpected in its originality. Like the signature adidas track jacket. The classic look of sports heritage has been defined by adidas for decades. Others might build on the 3-Stripes foundation, but can anyone else really compete with an icon?', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 35, 4, 1, 0, '2021-05-05 14:07:09', '2021-05-08 03:15:49'),
+(10, 'Nike Sportswear', 1, 8, 'images\\Nike%20Sportswear.png', 399000, 'new', 'Sushi and sneaker connoisseurs behold: The Nike Sportswear T-Shirt sets you up with soft, cotton fabric and a Nike graphic on the chest for total shoeshi fantasy.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 40, 4, 1, 0, '2021-05-05 14:11:27', '2021-05-08 03:15:46'),
+(11, 'Jordan Jumpman Classics', 1, 8, 'images\\Jordan%20Jumpman%20Classics.png', 399000, 'new', 'Ready for take-off. The Jordan Jumpman Classics T-Shirt riffs on an iconic Michael Jordan image with a fresh, bold-letter graphic.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 100, 4, 1, 0, '2021-05-05 14:11:27', '2021-05-08 03:15:42'),
+(12, 'RUN LOGO GRAPHIC TEE', 1, 8, 'images\\RUN%20LOGO%20GRAPHIC%20TEE.png', 299000, 'new', 'Always one run away from a good mood. Slip on this adidas running t-shirt, and let the endorphins multiply. Not only does it keep you dry with moisture-absorbing AEROREADY, but it\'s also made with the planet in mind. A tee you\'ll feel good wearing for more reasons than one. This product is made with Primegreen, a series of high-performance recycled materials.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 69, 4, 1, 0, '2021-05-05 14:11:27', '2021-05-08 10:02:33'),
+(13, 'RUNNING TANK TOP', 1, 8, 'images\\HEAT.RDY%20RUNNING%20TANK%20TOP.png', 550000, 'new', 'No matter how high the temperature rises, you\'re ready. Slip on this light and breathable adidas tank top, knowing HEAT.RDY will manage moisture and keep air flowing with every stride you take. And knowing the recycled content is helping to end plastic waste. This product is made with Primegreen, a series of high-performance recycled materials.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 45, 4, 1, 0, '2021-05-05 14:11:27', '2021-05-08 03:15:38'),
+(14, 'BADGE OF SPORT SHORTS', 5, 8, 'images\\BADGE%20OF%20SPORT%20SHORTS.png', 450000, 'new', 'Whether you\'re headed to the gym or out with your crew, pull on these casual shorts. They\'re made of soft cotton-blend French terry in an easy-to-wear fit that\'s not too loose or too tight. The drawcord-adjustable elastic waist lets you personalise the fit.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 50, 4, 1, 0, '2021-05-05 14:14:54', '2021-05-08 03:15:36'),
+(16, 'Nike Sportswear City Made', 3, 8, 'images\\OWN%20THE%20RUN%20CELEBRATION%20SHORTS.png', 1249000, 'new', 'The Nike Air Woven Trousers update a style staple with Ripstop fabric and reinforced panels. A tapered leg design and utility details provide a clean, tactical look.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 45, 4, 1, 0, '2021-05-05 14:14:54', '2021-05-08 03:15:33'),
+(17, 'Jordan Dri-FIT Zion', 3, 8, 'images\\Jordan%20Dri-FIT%20Zion.png', 100000, 'new', 'Zion likes versatile clothing that he can wear while hanging with family and friends—and then go and hoop in.The Jordan Dri-FIT Zion Trousers tick all boxes, with smooth, sweat-wicking fleece and a design that\'s fit for moving on and off the court.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 26, 4, 1, 0, '2021-05-05 14:14:54', '2021-05-08 18:28:42'),
+(18, 'OWN THE RUN CELEBRATION SHORTS', 5, 8, 'images\\BADGE%20OF%20SPORT%20SHORTS.png', 450000, 'new', 'Every run has its share of triumphs and defeats. When you stay comfortable in these running shorts, it\'s easier to appreciate the process. AEROREADY wicks moisture, and the cut gives you free movement through your stride. Graphic panels add a heavy dose of adidas pride.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 35, 5, 1, 0, '2021-05-05 14:14:54', '2021-05-08 03:15:25');
 
 -- --------------------------------------------------------
 
@@ -317,7 +331,7 @@ CREATE TABLE `store` (
 --
 
 INSERT INTO `store` (`id`, `idUser`, `name`, `description`, `image`, `createdAt`, `updatedAt`) VALUES
-(8, 17, 'Hype Beast Style', 'Our business is built on trust, and every item we sell is guaranteed authentic.', 'images\\default_store.jpg', '2021-05-06 09:28:13', '2021-05-06 09:28:13');
+(8, 17, 'Zalora', 'Lorem ipsum', 'images\\default_store.jpg', '2021-05-06 09:28:13', '2021-05-07 09:44:11');
 
 -- --------------------------------------------------------
 
@@ -328,6 +342,7 @@ INSERT INTO `store` (`id`, `idUser`, `name`, `description`, `image`, `createdAt`
 CREATE TABLE `transaction` (
   `id` int(11) NOT NULL,
   `idUser` int(11) NOT NULL,
+  `idStore` int(11) NOT NULL,
   `address` text NOT NULL,
   `subTotal` int(11) NOT NULL,
   `postage` int(11) NOT NULL,
@@ -342,9 +357,11 @@ CREATE TABLE `transaction` (
 -- Dumping data untuk tabel `transaction`
 --
 
-INSERT INTO `transaction` (`id`, `idUser`, `address`, `subTotal`, `postage`, `total`, `paymentMethod`, `status`, `createdAt`, `updatedAt`) VALUES
-(10, 17, 'Ganeas, Sumedang, Jawa Barat', 5000, 3000, 8000, 'MasterCard', 'Not yet paid', '2021-05-07 06:46:48', '2021-05-07 07:29:19'),
-(11, 17, 'Ganeas, Sumedang, Jawa Barat', 5000, 3000, 8000, 'MasterCard', 'Completed', '2021-05-07 07:31:41', '2021-05-07 07:46:56');
+INSERT INTO `transaction` (`id`, `idUser`, `idStore`, `address`, `subTotal`, `postage`, `total`, `paymentMethod`, `status`, `createdAt`, `updatedAt`) VALUES
+(17, 17, 8, 'Ganeas, Sumedang, Jawa Barat', 1200000, 15000, 1215000, 'Gopay', 'Not yet paid', '2021-05-08 09:58:04', '2021-05-08 09:58:04'),
+(18, 17, 8, 'Ganeas, Sumedang, Jawa Barat', 299000, 15000, 314000, 'MasterCard', 'Not yet paid', '2021-05-08 10:02:33', '2021-05-08 10:02:33'),
+(19, 17, 8, 'sadasd', 100000, 15000, 115000, 'Pos Indonesia', 'Not yet paid', '2021-05-08 18:24:20', '2021-05-08 18:24:20'),
+(20, 17, 8, 'sadasd', 100000, 15000, 115000, 'MasterCard', 'Not yet paid', '2021-05-08 18:28:42', '2021-05-08 18:28:42');
 
 -- --------------------------------------------------------
 
@@ -372,7 +389,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `phoneNumber`, `gender`, `dateOfBirth`, `image`, `active`, `role`, `createdAt`, `updatedAt`) VALUES
-(17, 'Chaerul Marwan', 'chaerulmarwan20@gmail.com', '$2b$10$wU9Th0qxrk/f38QaTqK6HORgFd05TFtFMf23g0OIIUZ1SiEj0YTgu', 'None', 'Tidak didefinisikan', 'None', 'images\\default.png', 1, 2, '2021-05-06 05:57:17', '2021-05-06 05:58:25');
+(17, 'Chaerul Marwan', 'chaerulmarwan20@gmail.com', '$2b$10$wU9Th0qxrk/f38QaTqK6HORgFd05TFtFMf23g0OIIUZ1SiEj0YTgu', '087827865437', 'Laki-laki', '10 Agustus 2006', 'images\\1620478305927-default.png', 1, 2, '2021-05-06 05:57:17', '2021-05-08 12:51:45');
 
 -- --------------------------------------------------------
 
@@ -456,7 +473,8 @@ ALTER TABLE `store`
 --
 ALTER TABLE `transaction`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idUser` (`idUser`);
+  ADD KEY `idUser` (`idUser`),
+  ADD KEY `idStore` (`idStore`);
 
 --
 -- Indeks untuk tabel `users`
@@ -480,19 +498,19 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT untuk tabel `access_token`
 --
 ALTER TABLE `access_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT untuk tabel `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT untuk tabel `bag`
 --
 ALTER TABLE `bag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `category`
@@ -504,37 +522,37 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT untuk tabel `detail_transaction`
 --
 ALTER TABLE `detail_transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `store`
 --
 ALTER TABLE `store`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_token`

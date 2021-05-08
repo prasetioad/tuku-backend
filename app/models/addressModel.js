@@ -118,17 +118,7 @@ exports.insertAddress = (data) => {
   });
 };
 
-exports.updateAddress = (
-  idAddress,
-  type,
-  address,
-  postalCode,
-  city,
-  name,
-  phoneNumber,
-  isPrimary,
-  idUser
-) => {
+exports.updateAddress = (idAddress, isPrimary, idUser) => {
   return new Promise((resolve, reject) => {
     connection.query(
       "SELECT * FROM address WHERE idUser = ? AND isPrimary = true",
@@ -142,17 +132,8 @@ exports.updateAddress = (
               (err, result) => {
                 if (!err) {
                   connection.query(
-                    "UPDATE address SET type = ?, address = ?, postalCode = ?, city = ?, name = ?, phoneNumber = ?, isPrimary = ? WHERE id = ? ",
-                    [
-                      type,
-                      address,
-                      postalCode,
-                      city,
-                      name,
-                      phoneNumber,
-                      isPrimary,
-                      idAddress,
-                    ],
+                    "UPDATE address SET isPrimary = true WHERE id = ?",
+                    idAddress,
                     (err, result) => {
                       if (!err) {
                         connection.query(
@@ -178,17 +159,8 @@ exports.updateAddress = (
             );
           } else {
             connection.query(
-              "UPDATE address SET type = ?, address = ?, postalCode = ?, city = ?, name = ?, phoneNumber = ?, isPrimary = ? WHERE id = ? ",
-              [
-                type,
-                address,
-                postalCode,
-                city,
-                name,
-                phoneNumber,
-                isPrimary,
-                idAddress,
-              ],
+              "UPDATE address SET isPrimary = true WHERE id = ?",
+              idAddress,
               (err, result) => {
                 if (!err) {
                   connection.query(

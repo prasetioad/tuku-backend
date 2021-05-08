@@ -108,25 +108,11 @@ exports.updateAddress = (req, res) => {
   const idAddress = req.params.id;
   const idUser = req.auth.id;
 
-  const {
-    type,
-    address,
-    postalCode,
-    city,
-    name,
-    phoneNumber,
-    isPrimary,
-  } = req.body;
+  const { name, isPrimary } = req.body;
 
   addressModel
     .updateAddress(
       idAddress,
-      type,
-      address,
-      postalCode,
-      city,
-      name,
-      phoneNumber,
       isPrimary === true || isPrimary === "true" ? true : false,
       idUser
     )

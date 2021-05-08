@@ -62,7 +62,7 @@ exports.getAllDetailOrderUser = (
         }
         const firstData = perPage * page - perPage;
         connection.query(
-          `SELECT detail_transaction.id, product.title, product.image, detail_transaction.size, detail_transaction.qty, detail_transaction.price FROM detail_transaction INNER JOIN product ON detail_transaction.idProduct = product.id WHERE detail_transaction.idTransaction = ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
+          `SELECT detail_transaction.id, product.title, product.image, detail_transaction.size, detail_transaction.qty, product.price FROM detail_transaction INNER JOIN product ON detail_transaction.idProduct = product.id WHERE detail_transaction.idTransaction = ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
           [id, firstData, perPage],
           (err, result) => {
             if (!err) {

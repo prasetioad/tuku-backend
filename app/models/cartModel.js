@@ -17,7 +17,7 @@ exports.getAllCart = (queryPage, queryPerPage, sortBy, orderBy, id) => {
         }
         const firstData = perPage * page - perPage;
         connection.query(
-          `SELECT bag.id, bag.idProduct, product.image, product.title, store.name AS brand, bag.size, bag.qty, bag.price FROM ((bag INNER JOIN product ON bag.idProduct = product.id) INNER JOIN store ON bag.idStore = store.id) WHERE bag.idUser = ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
+          `SELECT bag.id, bag.idProduct, product.image, product.title, store.name AS brand, bag.size, bag.qty, bag.price, bag.total FROM ((bag INNER JOIN product ON bag.idProduct = product.id) INNER JOIN store ON bag.idStore = store.id) WHERE bag.idUser = ? ORDER BY ${sortBy} ${orderBy} LIMIT ?, ?`,
           [id, firstData, perPage],
           (err, result) => {
             if (!err) {
@@ -54,11 +54,11 @@ exports.createCart = (data) => {
   });
 };
 
-exports.updateCart = (id, qty) => {
+exports.updateCart = (id, qty, price) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "UPDATE bag SET qty = ? WHERE id = ?",
-      [qty, id],
+      "UPDATE bag SET qty = ?, total = ? WHERE id = ?",
+      [qty, price, id],
       (err, result) => {
         if (!err) {
           connection.query(

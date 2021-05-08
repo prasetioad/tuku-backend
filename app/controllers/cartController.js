@@ -31,15 +31,26 @@ exports.findAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  const { idProduct, idUser, idStore, size, qty, price } = req.body;
+  const {
+    idProduct,
+    idUser,
+    idStore,
+    size,
+    color,
+    qty,
+    price,
+    total,
+  } = req.body;
 
   const data = {
     idProduct,
     idUser,
     idStore,
     size,
+    color,
     qty,
     price,
+    total,
   };
 
   cartModel
@@ -62,9 +73,10 @@ exports.update = (req, res) => {
   const id = req.params.id;
 
   const qty = req.body.qty;
+  const price = req.body.price;
 
   cartModel
-    .updateCart(id, qty)
+    .updateCart(id, qty, price)
     .then((result) => {
       console.log(result);
       if (result.length < 1) {

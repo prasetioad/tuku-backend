@@ -93,6 +93,7 @@ exports.create = (req, res) => {
           idTransaction,
           idProduct: item.idProduct,
           size: item.size,
+          color: item.color,
           qty: item.qty,
           price: item.price,
         };

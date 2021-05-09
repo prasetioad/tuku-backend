@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Bulan Mei 2021 pada 20.31
+-- Waktu pembuatan: 09 Bulan Mei 2021 pada 15.26
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.1
 
@@ -81,7 +81,13 @@ INSERT INTO `access_token` (`id`, `idUser`, `accessToken`, `ipAddress`, `created
 (38, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiVGlkYWsgZGlkZWZpbmlzaWthbiIsImRhdGVPZkJpcnRoIjoiTm9uZSIsImltYWdlIjoiaW1hZ2VzXFxkZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQzOTgwNywiZXhwIjoxNjIwNTI2MjA3fQ.v4soZmDRl5JahtpUXwBNl22Na-aPV3868evCfdolcjg', '192.168.43.232', '2021-05-08 02:10:07', '2021-05-08 02:10:07'),
 (39, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiVGlkYWsgZGlkZWZpbmlzaWthbiIsImRhdGVPZkJpcnRoIjoiTm9uZSIsImltYWdlIjoiaW1hZ2VzXFxkZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQ0OTI5MCwiZXhwIjoxNjIwNTM1NjkwfQ.mUWuUVWe1dPqjXNk22QjXJiF-jbU-YM2vm3AoWnQgTM', '192.168.43.232', '2021-05-08 04:48:10', '2021-05-08 04:48:10'),
 (40, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiVGlkYWsgZGlkZWZpbmlzaWthbiIsImRhdGVPZkJpcnRoIjoiTm9uZSIsImltYWdlIjoiaW1hZ2VzXFxkZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQ3ODAzNSwiZXhwIjoxNjIwNTY0NDM1fQ.Q-8m8pkSRt22OcdkQnmzZUnNTHCLnp-4uY1H1UMnUTw', '192.168.43.107', '2021-05-08 12:47:15', '2021-05-08 12:47:15'),
-(41, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiTGFraS1sYWtpIiwiZGF0ZU9mQmlydGgiOiIxMCBBZ3VzdHVzIDIwMDYiLCJpbWFnZSI6ImltYWdlc1xcMTYyMDQ3ODMwNTkyNy1kZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQ5NzcwMywiZXhwIjoxNjIwNTg0MTAzfQ.lR1PMdOc9o-gDAt-C_EO-pb4e6kp2WNgSzyG4VUo_bE', '192.168.43.107', '2021-05-08 18:15:03', '2021-05-08 18:15:03');
+(41, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiTGFraS1sYWtpIiwiZGF0ZU9mQmlydGgiOiIxMCBBZ3VzdHVzIDIwMDYiLCJpbWFnZSI6ImltYWdlc1xcMTYyMDQ3ODMwNTkyNy1kZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDQ5NzcwMywiZXhwIjoxNjIwNTg0MTAzfQ.lR1PMdOc9o-gDAt-C_EO-pb4e6kp2WNgSzyG4VUo_bE', '192.168.43.107', '2021-05-08 18:15:03', '2021-05-08 18:15:03'),
+(42, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiTGFraS1sYWtpIiwiZGF0ZU9mQmlydGgiOiIxMCBBZ3VzdHVzIDIwMDYiLCJpbWFnZSI6ImltYWdlc1xcMTYyMDQ3ODMwNTkyNy1kZWZhdWx0LnBuZyIsInJvbGUiOjIsImlhdCI6MTYyMDUyOTkwOCwiZXhwIjoxNjIwNjE2MzA4fQ.V4KNicxsoFAO94q_YUZnmcRMOLCKVeDOG5WGYjRZ6oU', '192.168.43.107', '2021-05-09 03:11:48', '2021-05-09 03:11:48'),
+(43, 20, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJOaWVsIEdvbnphbGVzIiwiZW1haWwiOiJtYXJ3YW5ydWxAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiIwODEyMjQ2ODU1MDIiLCJnZW5kZXIiOiJUaWRhayBkaWRlZmluaXNpa2FuIiwiZGF0ZU9mQmlydGgiOiJOb25lIiwiaW1hZ2UiOiJpbWFnZXNcXGRlZmF1bHQucG5nIiwicm9sZSI6MSwiaWF0IjoxNjIwNTQ5NTg2LCJleHAiOjE2MjA2MzU5ODZ9.OWssLU8nlYbXOK5dijGGPsM-sWiBShOY-9kI7xbE210', '192.168.43.107', '2021-05-09 08:39:46', '2021-05-09 08:39:46'),
+(44, 20, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJOaWVsIEdvbnphbGVzIiwiZW1haWwiOiJtYXJ3YW5ydWxAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiIwODEyMjQ2ODU1MDIiLCJnZW5kZXIiOiJUaWRhayBkaWRlZmluaXNpa2FuIiwiZGF0ZU9mQmlydGgiOiJOb25lIiwiaW1hZ2UiOiJpbWFnZXNcXGRlZmF1bHQucG5nIiwicm9sZSI6MSwiaWF0IjoxNjIwNTUxMTk3LCJleHAiOjE2MjA2Mzc1OTd9.c1-c4l5YlkvM_Wo0jXGdgoLzh7Rt_9KX2zWg0rDVnXg', '192.168.43.107', '2021-05-09 09:06:37', '2021-05-09 09:06:37'),
+(45, 20, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsIm5hbWUiOiJOaWVsIEdvbnphbGVzIiwiZW1haWwiOiJtYXJ3YW5ydWxAZ21haWwuY29tIiwicGhvbmVOdW1iZXIiOiIwODEyMjQ2ODU1MDIiLCJnZW5kZXIiOiJUaWRhayBkaWRlZmluaXNpa2FuIiwiZGF0ZU9mQmlydGgiOiJOb25lIiwiaW1hZ2UiOiJpbWFnZXNcXGRlZmF1bHQucG5nIiwicm9sZSI6MSwiaWF0IjoxNjIwNTUxNTYwLCJleHAiOjE2MjA2Mzc5NjB9.cGhUbzG1esLZeZUUNsQZ4p-zM-qt8_OhJFsejhAq7SE', '192.168.43.107', '2021-05-09 09:12:40', '2021-05-09 09:12:40'),
+(46, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiTGFraS1MYWtpIiwiZGF0ZU9mQmlydGgiOiIxMCBKdWxpIDIwMDAiLCJpbWFnZSI6ImltYWdlc1xcMTYyMDUzNjE0MzQ5OS1ad2FsbGV0LUxvZ2luICgxKS5wbmciLCJyb2xlIjoxLCJpYXQiOjE2MjA1NTU0NzAsImV4cCI6MTYyMDY0MTg3MH0.k0C-7m4Pp2qORTvbWgfZvsM7yKYo-1jirZYVTyiAIgo', '192.168.43.107', '2021-05-09 10:17:50', '2021-05-09 10:17:50'),
+(47, 17, 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsIm5hbWUiOiJDaGFlcnVsIE1hcndhbiIsImVtYWlsIjoiY2hhZXJ1bG1hcndhbjIwQGdtYWlsLmNvbSIsInBob25lTnVtYmVyIjoiMDg3ODI3ODY1NDM3IiwiZ2VuZGVyIjoiTGFraS1MYWtpIiwiZGF0ZU9mQmlydGgiOiIxMCBKdWxpIDIwMDAiLCJpbWFnZSI6ImltYWdlc1xcMTYyMDUzNjE0MzQ5OS1ad2FsbGV0LUxvZ2luICgxKS5wbmciLCJyb2xlIjoxLCJpYXQiOjE2MjA1NjUxNzAsImV4cCI6MTYyMDY1MTU3MH0.agpXtWB0bAuNvtBDDV5c1XVNh_JxUYN-XohXYmFS7rU', '192.168.43.107', '2021-05-09 12:59:30', '2021-05-09 12:59:30');
 
 -- --------------------------------------------------------
 
@@ -108,8 +114,8 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`id`, `idUser`, `type`, `name`, `phoneNumber`, `address`, `postalCode`, `city`, `isPrimary`, `createdAt`, `updatedAt`) VALUES
-(18, 17, 'asdsad', 'sadasd', 'asdasd', 'sadasd', 'asdasd', 'asdasdasd', 1, '2021-05-08 18:03:06', '2021-05-08 18:18:36'),
-(19, 17, 'sadasd', 'sadsad', '34234324234', 'sdfsdsdf', '3243234', 'sfsdfsdf', 0, '2021-05-08 18:04:46', '2021-05-08 18:18:36');
+(41, 17, 'Rumah', 'Chaerul Marwan', '081224685502', 'Ganeas', '2700', 'Sumedang', 1, '2021-05-09 05:41:11', '2021-05-09 07:29:01'),
+(45, 17, 'Kantor', 'Agus Mulyana', '085678092347', 'Bandung, Jawa Barat, Indonesia', '301610', 'Bandung', 0, '2021-05-09 07:28:32', '2021-05-09 07:29:01');
 
 -- --------------------------------------------------------
 
@@ -184,7 +190,9 @@ INSERT INTO `detail_transaction` (`id`, `idUser`, `idTransaction`, `idProduct`, 
 (24, 17, 17, 5, '40', '#1A1A1A', 1, '2021-05-08 09:58:05', '2021-05-08 09:58:05'),
 (25, 17, 18, 12, 'M', '#1A1A1A', 1, '2021-05-08 10:02:33', '2021-05-08 10:02:33'),
 (26, 17, 19, 17, 'M', '#1A1A1A', 1, '2021-05-08 18:24:20', '2021-05-08 18:24:20'),
-(27, 17, 20, 17, 'S', '#D84242', 1, '2021-05-08 18:28:42', '2021-05-08 18:28:42');
+(27, 17, 20, 17, 'S', '#D84242', 1, '2021-05-08 18:28:42', '2021-05-08 18:28:42'),
+(28, 17, 21, 17, 'S', '#1A1A1A', 1, '2021-05-09 03:45:40', '2021-05-09 03:45:40'),
+(29, 17, 22, 17, 'M', '#1A1A1A', 1, '2021-05-09 05:55:20', '2021-05-09 05:55:20');
 
 -- --------------------------------------------------------
 
@@ -293,8 +301,8 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `title`, `idCategory`, `idStore`, `image`, `price`, `conditions`, `description`, `size`, `color`, `stock`, `rating`, `isPopular`, `isArchived`, `createdAt`, `updatedAt`) VALUES
-(2, 'ZX 8000 GOLF', 4, 8, 'images\\zx%201k%20boost.png', 2300000, 'new', 'Lace up for tee time. These ZX 8000 Golf Shoes are part of the adidas A-ZX series, a global platform spanning a multitude of cultural touch points to showcase the diverse world of sneakers. Representing the letter G, this golf-inspired pair flash a glossy, embossed leather upper reminiscent of a golf ball. Neon accents and a functional ball marker and tee holder design make them stand out even more.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 100, 5, 0, 1, '2021-05-05 13:56:15', '2021-05-08 03:16:21'),
-(3, 'LITE RACER 2.0', 4, 8, 'images\\LITE%20RACER%202.0.png', 300000, 'new', 'Bring sport attitude into everyday life. These adidas running-inspired shoes feature a knit upper to keep you cool for school, work or play. Lightweight cushioning adds comfort during power walks and strolls in the park.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 30, 4, 0, 0, '2021-05-05 13:59:41', '2021-05-08 03:16:18'),
+(2, 'ZX 8000 GOLF', 4, 8, 'images\\zx%201k%20boost.png', 2300000, 'new', 'Lace up for tee time. These ZX 8000 Golf Shoes are part of the adidas A-ZX series, a global platform spanning a multitude of cultural touch points to showcase the diverse world of sneakers. Representing the letter G, this golf-inspired pair flash a glossy, embossed leather upper reminiscent of a golf ball. Neon accents and a functional ball marker and tee holder design make them stand out even more.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 100, 5, 0, 1, '2021-05-05 13:56:15', '2021-05-09 12:32:18'),
+(3, 'LITE RACER 2.0', 4, 8, 'images\\LITE%20RACER%202.0.png', 300000, 'new', 'Bring sport attitude into everyday life. These adidas running-inspired shoes feature a knit upper to keep you cool for school, work or play. Lightweight cushioning adds comfort during power walks and strolls in the park.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 0, 4, 0, 0, '2021-05-05 13:59:41', '2021-05-09 12:32:21'),
 (4, 'ZX 1K BOOST', 4, 8, 'images\\zx%201k%20boost.png', 1600000, 'new', 'In a constantly evolving world, keeping up is just part of the routine. Stay on top of it in these airy knit mesh adidas shoes. The ZX series has merged technology with culture since the \'80s. Today a combination of Boost and EVA cushioning keeps you comfortable as you charge through the day.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 20, 4, 1, 0, '2021-05-05 14:02:11', '2021-05-08 03:16:15'),
 (5, 'SUPERSTAR', 4, 8, 'images\\SUPERSTAR.png', 1000000, 'new', 'Originally made for basketball courts in the \'70s. Celebrated by hip hop royalty in the \'80s. The adidas Superstar shoe is now a lifestyle staple for streetwear enthusiasts. The world-famous shell toe feature remains, providing style and protection. Just like it did on the B-ball courts back in the day. Now, whether at a festival or walking in the street you can enjoy yourself without the fear of being stepped on. The serrated 3-Stripes detail and adidas Superstar box logo adds OG authenticity to your look.', '[\"38\", \"39\", \"40\", \"41\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 49, 4, 1, 0, '2021-05-05 14:07:09', '2021-05-08 09:58:05'),
 (6, 'FULL-ZIP STADIUM HOODIE', 2, 8, 'images\\FULL-ZIP%20STADIUM%20HOODIE.png', 1000000, 'new', 'Take a moment to let it all sink in. You gave it your all. You pushed through, mentally and physically. As you sit on that locker room bench lacing up your shoes, still feeling the energy vibrating through your body, remember that you\'re the one who got yourself there. Then zip into this adidas hoodie and go celebrate that. The soft fabric and snug ribbed details reward tired muscles with comfort. You deserve it.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 50, 1, 1, 0, '2021-05-05 14:07:09', '2021-05-08 03:15:57'),
@@ -307,8 +315,7 @@ INSERT INTO `product` (`id`, `title`, `idCategory`, `idStore`, `image`, `price`,
 (13, 'RUNNING TANK TOP', 1, 8, 'images\\HEAT.RDY%20RUNNING%20TANK%20TOP.png', 550000, 'new', 'No matter how high the temperature rises, you\'re ready. Slip on this light and breathable adidas tank top, knowing HEAT.RDY will manage moisture and keep air flowing with every stride you take. And knowing the recycled content is helping to end plastic waste. This product is made with Primegreen, a series of high-performance recycled materials.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 45, 4, 1, 0, '2021-05-05 14:11:27', '2021-05-08 03:15:38'),
 (14, 'BADGE OF SPORT SHORTS', 5, 8, 'images\\BADGE%20OF%20SPORT%20SHORTS.png', 450000, 'new', 'Whether you\'re headed to the gym or out with your crew, pull on these casual shorts. They\'re made of soft cotton-blend French terry in an easy-to-wear fit that\'s not too loose or too tight. The drawcord-adjustable elastic waist lets you personalise the fit.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 50, 4, 1, 0, '2021-05-05 14:14:54', '2021-05-08 03:15:36'),
 (16, 'Nike Sportswear City Made', 3, 8, 'images\\OWN%20THE%20RUN%20CELEBRATION%20SHORTS.png', 1249000, 'new', 'The Nike Air Woven Trousers update a style staple with Ripstop fabric and reinforced panels. A tapered leg design and utility details provide a clean, tactical look.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 45, 4, 1, 0, '2021-05-05 14:14:54', '2021-05-08 03:15:33'),
-(17, 'Jordan Dri-FIT Zion', 3, 8, 'images\\Jordan%20Dri-FIT%20Zion.png', 100000, 'new', 'Zion likes versatile clothing that he can wear while hanging with family and friends—and then go and hoop in.The Jordan Dri-FIT Zion Trousers tick all boxes, with smooth, sweat-wicking fleece and a design that\'s fit for moving on and off the court.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 26, 4, 1, 0, '2021-05-05 14:14:54', '2021-05-08 18:28:42'),
-(18, 'OWN THE RUN CELEBRATION SHORTS', 5, 8, 'images\\BADGE%20OF%20SPORT%20SHORTS.png', 450000, 'new', 'Every run has its share of triumphs and defeats. When you stay comfortable in these running shorts, it\'s easier to appreciate the process. AEROREADY wicks moisture, and the cut gives you free movement through your stride. Graphic panels add a heavy dose of adidas pride.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 35, 5, 1, 0, '2021-05-05 14:14:54', '2021-05-08 03:15:25');
+(17, 'Jordan Dri-FIT Zion', 3, 8, 'images\\Jordan%20Dri-FIT%20Zion.png', 100000, 'new', 'Zion likes versatile clothing that he can wear while hanging with family and friends—and then go and hoop in.The Jordan Dri-FIT Zion Trousers tick all boxes, with smooth, sweat-wicking fleece and a design that\'s fit for moving on and off the court.', '[\"S\", \"M\", \"L\", \"XL\"]', '[\"#1A1A1A\", \"#D84242\", \"#4290D8\", \"#42D86C\"]', 24, 5, 1, 0, '2021-05-05 14:14:54', '2021-05-09 05:55:20');
 
 -- --------------------------------------------------------
 
@@ -321,7 +328,6 @@ CREATE TABLE `store` (
   `idUser` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `image` varchar(255) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -330,8 +336,8 @@ CREATE TABLE `store` (
 -- Dumping data untuk tabel `store`
 --
 
-INSERT INTO `store` (`id`, `idUser`, `name`, `description`, `image`, `createdAt`, `updatedAt`) VALUES
-(8, 17, 'Zalora', 'Lorem ipsum', 'images\\default_store.jpg', '2021-05-06 09:28:13', '2021-05-07 09:44:11');
+INSERT INTO `store` (`id`, `idUser`, `name`, `description`, `createdAt`, `updatedAt`) VALUES
+(8, 17, 'Zalora', 'Lorem ipsum', '2021-05-06 09:28:13', '2021-05-09 10:23:51');
 
 -- --------------------------------------------------------
 
@@ -359,9 +365,11 @@ CREATE TABLE `transaction` (
 
 INSERT INTO `transaction` (`id`, `idUser`, `idStore`, `address`, `subTotal`, `postage`, `total`, `paymentMethod`, `status`, `createdAt`, `updatedAt`) VALUES
 (17, 17, 8, 'Ganeas, Sumedang, Jawa Barat', 1200000, 15000, 1215000, 'Gopay', 'Not yet paid', '2021-05-08 09:58:04', '2021-05-08 09:58:04'),
-(18, 17, 8, 'Ganeas, Sumedang, Jawa Barat', 299000, 15000, 314000, 'MasterCard', 'Not yet paid', '2021-05-08 10:02:33', '2021-05-08 10:02:33'),
-(19, 17, 8, 'sadasd', 100000, 15000, 115000, 'Pos Indonesia', 'Not yet paid', '2021-05-08 18:24:20', '2021-05-08 18:24:20'),
-(20, 17, 8, 'sadasd', 100000, 15000, 115000, 'MasterCard', 'Not yet paid', '2021-05-08 18:28:42', '2021-05-08 18:28:42');
+(18, 17, 8, 'Ganeas, Sumedang, Jawa Barat', 299000, 15000, 314000, 'MasterCard', 'Packed', '2021-05-08 10:02:33', '2021-05-09 06:11:44'),
+(19, 17, 8, 'Situraja, Sumedang Jawa Barat', 100000, 15000, 115000, 'Pos Indonesia', 'Sent', '2021-05-08 18:24:20', '2021-05-09 13:24:58'),
+(20, 17, 8, 'Darmaraja, Sumedang, Jawa Barat', 100000, 15000, 115000, 'MasterCard', 'Completed', '2021-05-08 18:28:42', '2021-05-09 13:25:13'),
+(21, 17, 8, 'Ganeas, Sumedang, Jawa Barat', 100000, 15000, 115000, 'Pos Indonesia', 'Completed', '2021-05-09 03:45:40', '2021-05-09 13:25:27'),
+(22, 17, 8, 'Wado, Sumedang, Jawa Barat', 100000, 15000, 115000, 'Gopay', 'Completed', '2021-05-09 05:55:20', '2021-05-09 13:25:40');
 
 -- --------------------------------------------------------
 
@@ -389,7 +397,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `phoneNumber`, `gender`, `dateOfBirth`, `image`, `active`, `role`, `createdAt`, `updatedAt`) VALUES
-(17, 'Chaerul Marwan', 'chaerulmarwan20@gmail.com', '$2b$10$wU9Th0qxrk/f38QaTqK6HORgFd05TFtFMf23g0OIIUZ1SiEj0YTgu', '087827865437', 'Laki-laki', '10 Agustus 2006', 'images\\1620478305927-default.png', 1, 2, '2021-05-06 05:57:17', '2021-05-08 12:51:45');
+(17, 'Chaerul Marwan', 'chaerulmarwan20@gmail.com', '$2b$10$wU9Th0qxrk/f38QaTqK6HORgFd05TFtFMf23g0OIIUZ1SiEj0YTgu', '087827865437', 'Laki-Laki', '10 Juli 2000', 'images\\default.png', 1, 1, '2021-05-06 05:57:17', '2021-05-09 13:00:11');
 
 -- --------------------------------------------------------
 
@@ -498,19 +506,19 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT untuk tabel `access_token`
 --
 ALTER TABLE `access_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT untuk tabel `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT untuk tabel `bag`
 --
 ALTER TABLE `bag`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `category`
@@ -522,43 +530,43 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT untuk tabel `detail_transaction`
 --
 ALTER TABLE `detail_transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `gallery`
 --
 ALTER TABLE `gallery`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `store`
 --
 ALTER TABLE `store`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

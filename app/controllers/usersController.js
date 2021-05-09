@@ -123,7 +123,6 @@ exports.create = async (req, res) => {
           idUser: result[0].id,
           name: store,
           description: "None",
-          image: "images\\default_store.jpg",
         };
         await usersModel.createStore(dataStore);
       }

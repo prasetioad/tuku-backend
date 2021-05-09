@@ -3,11 +3,31 @@ const connection = require("../configs/dbConfig");
 exports.findStore = (id) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "SELECT store.id, store.name AS store, users.email, users.phoneNumber, store.description, store.image FROM store INNER JOIN users ON store.idUser = users.id WHERE idUser = ?",
+      "SELECT store.id, store.name AS store, users.email, users.phoneNumber, store.description, users.image FROM store INNER JOIN users ON store.idUser = users.id WHERE idUser = ?",
       id,
       (err, result) => {
         if (!err) {
           resolve(result);
+        } else {
+          reject(new Error("Internal server error"));
+        }
+      }
+    );
+  });
+};
+
+exports.findStoreUpdate = (id, message) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "SELECT store.id, store.name AS store, users.email, users.phoneNumber, store.description, users.image FROM store INNER JOIN users ON store.idUser = users.id WHERE idUser = ?",
+      id,
+      (err, result) => {
+        if (!err) {
+          if (result.length == 1) {
+            resolve(result);
+          } else {
+            reject(new Error(`Cannot ${message} store with id = ${id}`));
+          }
         } else {
           reject(new Error("Internal server error"));
         }
@@ -199,7 +219,7 @@ exports.updateStore = (id, dataStore) => {
       (err, result) => {
         if (!err) {
           connection.query(
-            `SELECT * FROM store WHERE idUser = ?`,
+            `SELECT store.id, store.name AS store, users.email, users.phoneNumber, store.description, users.image FROM store INNER JOIN users ON store.idUser = users.id WHERE idUser = ?`,
             id,
             (err, result) => {
               if (!err) {
@@ -209,26 +229,6 @@ exports.updateStore = (id, dataStore) => {
               }
             }
           );
-        } else {
-          reject(new Error("Internal server error"));
-        }
-      }
-    );
-  });
-};
-
-exports.findStore = (id, message) => {
-  return new Promise((resolve, reject) => {
-    connection.query(
-      "SELECT * FROM store WHERE idUser = ?",
-      id,
-      (err, result) => {
-        if (!err) {
-          if (result.length == 1) {
-            resolve(result);
-          } else {
-            reject(new Error(`Cannot ${message} store with id = ${id}`));
-          }
         } else {
           reject(new Error("Internal server error"));
         }

@@ -23,13 +23,6 @@ exports.findStore = (req, res) => {
 };
 
 exports.updateStore = async (req, res) => {
-  const validate = validation.validationUpdateStore(req.body);
-
-  if (validate.error) {
-    helper.printError(res, 400, validate.error.details[0].message);
-    return;
-  }
-
   const id = req.auth.id;
 
   const { storeName, email, phoneNumber, description } = req.body;
@@ -55,19 +48,19 @@ exports.updateStore = async (req, res) => {
   }
 
   storeModel
-    .findStore(id, "update")
+    .findStoreUpdate(id, "update")
     .then((result) => {
       let image;
       if (!req.file) {
         image = result[0].image;
       } else {
         const oldImage = result[0].image;
-        if (oldImage !== "images\\default_store.jpg") {
+        if (oldImage !== "images\\default.png") {
           removeImage(oldImage);
         }
         image = req.file.path;
       }
-      dataStore.image = image;
+      dataUser.image = image;
       return usersModel.updateUsers(id, dataUser);
     })
     .then((result) => {

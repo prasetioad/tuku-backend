@@ -98,5 +98,5 @@ Tuku App adalah web aplikasi jual beli secara online yang memudahkan penggunaany
 
 #### VISIT PROJECT
 
-- :white_check_mark: [Frontend](https://github.com/ErwinSaputraSulistio/Tuku-FE)
-- :rocket: [Website]()
+- :white_check_mark: [Frontend](https://github.com/chaerulmarwan20/tuku-frontend)
+- :rocket: [Website](https://tukupedia.netlify.app/)

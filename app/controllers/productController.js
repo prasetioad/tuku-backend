@@ -1,3 +1,5 @@
+const path = require("path");
+const fs = require("fs");
 const productModel = require("../models/productModel");
 const helper = require("../helpers/printHelper");
 
@@ -144,4 +146,28 @@ exports.findAllImageProduct = (req, res) => {
     .catch((err) => {
       helper.printError(res, 500, err.message);
     });
+};
+
+exports.deleteProduct = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const result = await productModel.getAllImageProduct(id);
+    if (result < 1) {
+      helper.printError(res, 400, `Error deleting product with id = ${id}`);
+      return;
+    }
+    result.map((item, index) => {
+      return removeImage(item.image);
+    });
+    await productModel.deleteProduct(id);
+    helper.printSuccess(res, 200, "Delete product successfully", {});
+  } catch (err) {
+    helper.printError(res, 500, err.message);
+  }
+};
+
+const removeImage = (filePath) => {
+  filePath = path.join(__dirname, "../..", filePath);
+  fs.unlink(filePath, (err) => new Error(err));
 };

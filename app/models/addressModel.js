@@ -187,3 +187,19 @@ exports.updateAddress = (idAddress, isPrimary, idUser) => {
     );
   });
 };
+
+exports.deleteAddress = (idUser, idAddress) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "DELETE FROM address WHERE idUser = ? AND id = ?",
+      [idUser, idAddress],
+      (err, result) => {
+        if (!err) {
+          resolve(result);
+        } else {
+          reject(new Error("Internal server error"));
+        }
+      }
+    );
+  });
+};

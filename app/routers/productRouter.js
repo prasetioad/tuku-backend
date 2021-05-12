@@ -7,6 +7,7 @@ router
   .get("/popular", productController.findAllPopular)
   .get("/category/:id", productController.findAllByCategory)
   .get("/image/:id", productController.findAllImageProduct)
-  .get("/:id", productController.findOne);
+  .get("/:id", productController.findOne)
+  .delete("/:id", productController.deleteProduct);
 
 module.exports = router;

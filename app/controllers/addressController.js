@@ -60,15 +60,8 @@ exports.findOne = (req, res) => {
 exports.insertAddress = (req, res) => {
   const idUser = req.auth.id;
 
-  const {
-    type,
-    address,
-    postalCode,
-    city,
-    name,
-    phoneNumber,
-    isPrimary,
-  } = req.body;
+  const { type, address, postalCode, city, name, phoneNumber, isPrimary } =
+    req.body;
 
   const data = {
     idUser,
@@ -140,4 +133,24 @@ exports.updateAddress = (req, res) => {
       }
       helper.printError(res, 400, err.message);
     });
+};
+
+exports.deleteAddress = async (req, res) => {
+  const idUser = req.auth.id;
+  const idAddress = req.params.id;
+
+  try {
+    const result = await addressModel.deleteAddress(idUser, idAddress);
+    if (result.affectedRows === 0) {
+      helper.printError(
+        res,
+        400,
+        `Error deleting address with id = ${idAddress}`
+      );
+      return;
+    }
+    helper.printSuccess(res, 200, "Delete address successfully", {});
+  } catch (err) {
+    helper.printError(res, 500, err.message);
+  }
 };

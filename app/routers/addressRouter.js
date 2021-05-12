@@ -7,6 +7,7 @@ router
   .get("/", auth.verification(), addressController.findAll)
   .get("/find-one", auth.verification(), addressController.findOne)
   .post("/", auth.verification(), addressController.insertAddress)
-  .put("/:id", auth.verification(), addressController.updateAddress);
+  .put("/:id", auth.verification(), addressController.updateAddress)
+  .delete("/:id", auth.verification(), addressController.deleteAddress);
 
 module.exports = router;

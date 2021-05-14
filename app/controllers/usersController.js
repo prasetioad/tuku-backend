@@ -31,6 +31,57 @@ exports.findOne = (req, res) => {
       helper.printError(res, 500, err.message);
     });
 };
+exports.findId = (req, res) => {
+  const id = req.params.id
+  usersModel
+    .getUsersById(id)
+    .then((result) => {
+      if (result < 1) {
+        helper.printError(res, 400, `Cannot find one users with id = ${id}`);
+        return;
+      }
+      delete result[0].password;
+      helper.printSuccess(res, 200, "Find one users successfully", result);
+    })
+    .catch((err) => {
+      helper.printError(res, 500, err.message);
+    });
+};
+
+exports.findAll = (req, res) => {
+  const { page, perPage } = req.query;
+  const userID = req.auth.id
+  const keyword = req.query.keyword ? req.query.keyword : "";
+
+  usersModel
+    .getAllUsers(userID, page, perPage, keyword)
+    .then(([totalData, totalPage, result, page, perPage]) => {
+      if (result < 1) {
+        helper.printError(res, 400, "Users not found");
+        return;
+      }
+      for (let i = 0; i < perPage; i++) {
+        if (result[i] === undefined) {
+          break;
+        } else {
+          delete result[i].password;
+        }
+      }
+      helper.printPaginate(
+        res,
+        200,
+        "Find all users successfully",
+        totalData,
+        totalPage,
+        result,
+        page,
+        perPage
+      );
+    })
+    .catch((err) => {
+      helper.printError(res, 500, err.message);
+    });
+};
 
 exports.create = async (req, res) => {
   let image;

@@ -6,6 +6,8 @@ const multer = require("../middlewares/multer");
 
 router
   .get("/find-one", auth.verification(), usersController.findOne)
+  .get("/find-all", auth.verification(), usersController.findAll)
+  .get("/find-byid/:id", usersController.findId)
   .post("/", multer.uploadImage.single("image"), usersController.create)
   .get("/verify", usersController.verify)
   .post("/login", usersController.login)

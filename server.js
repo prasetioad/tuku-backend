@@ -8,12 +8,49 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 const path = require("path");
+const socketio = require("socket.io");
+const http = require("http");
+const moment = require("moment")
+moment.locale('id')
 
 // Router
 const router = require("./app/routers");
 
 // Express
 const app = express();
+
+//socketio
+const server = http.createServer(app);
+const io = socketio(server, {
+  cors: {
+    origin: '*',
+  }
+})
+io.on("connection", (socket) => {
+  console.log("client terhubung dengan id " + socket.id);
+
+  socket.on("initialUserLogin", (idUser) => {
+    socket.join(`user:${idUser}`)
+  })
+
+  socket.on('sendMessage', (data, callback) => {
+    // messageModels.insetMessage(data)
+    const date = new Date()
+    const timeNow = moment(date).format('LT')
+    const dataMessage = { ...data, time: timeNow }
+    io.to(`user:${dataMessage.idReceiver}`).emit('receiveMessage', dataMessage)
+    callback(dataMessage)
+    console.log(data);
+  })
+
+
+  socket.on("disconnect", reason => {
+ 
+    console.log("client disconnect " + reason);
+  })
+
+})
+
 
 app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(express.json());
@@ -52,6 +89,6 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server is running on http://${host}:${port}`);
 });

@@ -13,6 +13,50 @@ exports.getUsersById = (id) => {
   });
 };
 
+exports.getUsersById = (id) => {
+  return new Promise((resolve, reject) => {
+    connection.query("SELECT * FROM users WHERE id = ?", id, (err, result) => {
+      if (!err) {
+        resolve(result);
+      } else {
+        reject(new Error("Internal server error"));
+      }
+    });
+  });
+};
+
+exports.getAllUsers = (userID, queryPage, queryPerPage, keyword) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      `SELECT COUNT(*) AS totalData FROM users WHERE name LIKE ?  `,
+      [`%${keyword}%`, `%${keyword}%`, `%${keyword}%`],
+      (err, result) => {
+        let totalData, page, perPage, totalPage;
+        if (err) {
+          reject(new Error("Internal server error"));
+        } else {
+          totalData = result[0].totalData;
+          page = queryPage ? parseInt(queryPage) : 1;
+          perPage = queryPerPage ? parseInt(queryPerPage) : 5;
+          totalPage = Math.ceil(totalData / perPage);
+        }
+        const firstData = perPage * page - perPage;
+        connection.query(
+          `SELECT * FROM users WHERE name LIKE ? AND NOT id = ? LIMIT ?, ?`,
+          [`%${keyword}%`, userID, firstData, perPage],
+          (err, result) => {
+            if (err) {
+              reject(new Error("Internal server error"));
+            } else {
+              resolve([totalData, totalPage, result, page, perPage]);
+            }
+          }
+        );
+      }
+    );
+  });
+};
+
 exports.createUsers = (data, isSeller) => {
   return new Promise((resolve, reject) => {
     connection.query(

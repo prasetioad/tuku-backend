@@ -1,102 +1,130 @@
-<h3 align="center">Tuku App - Backend</h3>
+<h1 align="center">Backend - Tuku</h1>
+<p align="center">
+  <a href="https://tukupedia.netlify.app/" target="_blank"><img src="./images/Tuku.png"  width="400" alt="Tuku" border="0" /></a>
+</p>
 
----
+## Table of Contents
 
-## Tentang Tuku App
+- [Introduction](#introduction)
+- [Features](#features)
+- [Built With](#built-with)
+- [Prerequisites](#prerequisites)
+- [Endpoint](#endpoint)
+- [Installation](#installation)
+- [Related Project](#related-project)
 
-Tuku App adalah web aplikasi jual beli secara online yang memudahkan penggunaanya untuk berbelanja macam- macam produk fashion dengan menawarkan banyak category fashion seperti sepatu, kemeja, celana panjang, celana pendek, dan jacket. Pengguna juga dapat melakukan pembayaran online dengan cepat, efektif dan aman.
+## Introduction
 
-## Komponen
+Tuku is an online buying and selling web application that makes it easy to use to shop for various fashion products by offering many fashion categories such as shoes, shirts, trousers, shorts, and jackets. Users can also make online payments quickly, effectively and safely.
 
-- **[Express](https://expressjs.com/)**
-- **[Nodemon](https://www.npmjs.com/package/nodemon)**
-- **[MySQL2](https://www.npmjs.com/package/mysql2)**
-- **[Cors](https://www.npmjs.com/package/cors)**
-- **[Dotenv](https://www.npmjs.com/package/dotenv)**
-- **[Morgan](https://www.npmjs.com/package/morgan)**
-- **[Bcrypt](https://www.npmjs.com/package/bcrypt)**
-- **[Ip](https://www.npmjs.com/package/ip)**
-- **[JWT](https://www.npmjs.com/package/jsonwebtoken)**
-- **[Multer](https://www.npmjs.com/package/multer)**
-- **[Nodemailer](https://www.npmjs.com/package/nodemailer)**
-- **[Joi](https://www.npmjs.com/package/joi)**
+## Features
 
-#### User Endpoint
+- JWT authentication
 
-| METHOD |                    API                     |
-| :----: | :----------------------------------------: |
-| `POST` |               /api/v1/users/               |
-| `POST` |       /api/v1/users/forgot-password        |
-| `POST` |            /api/v1/users/login             |
-| `GET`  |  /api/v1/users/auth/verify/:email/:token   |
-| `PUT`  | /api/v1/users/reset-password/:email/:token |
-| `GET`  |           /api/v1/users/find-one           |
-| `PUT`  |             /api/v1/users/:id              |
+- Nodemailer for email verification
 
-#### Category Endpoint
+- Upload image using multer
+
+- Form validation using joi
+
+- CRUD for all tables required in the application
+
+## Built With
+
+- [ExpressJs](https://expressjs.com/)
+- [MySQL](https://www.mysql.com/)
+- [JWT](https://jwt.io/)
+- [Nodemailer](https://nodemailer.com/)
+
+## Prerequisites
+
+- [NodeJs](https://nodejs.org/en/download/)
+- [XAMPP](https://www.apachefriends.org/index.html)
+
+## Endpoint
+
+- User
+
+| METHOD |              API              |
+| :----: | :---------------------------: |
+| `GET`  |    /api/v1/users/find-one     |
+| `POST` |         /api/v1/users         |
+| `GET`  |   /api/v1/users/auth/verify   |
+| `POST` |      /api/v1/users/login      |
+| `POST` | /api/v1/users/forgot-password |
+| `PUT`  | /api/v1/users/reset-password  |
+| `PUT`  |       /api/v1/users/:id       |
+
+- Category
 
 | METHOD |       API        |
 | :----: | :--------------: |
 | `GET`  | /api/v1/category |
 
-#### Product Endpoint
+- Product
 
-| METHOD |             API              |
-| :----: | :--------------------------: |
-| `GET`  |       /api/v1/product        |
-| `GET`  |     /api/v1/product/:id      |
-| `GET`  | /api/v1/product/category/:id |
-| `GET`  |  /api/v1/product/image/:id   |
-| `GET`  |  /api/v1/product/detail/:id  |
-| `GET`  |   /api/v1/product/popular    |
+|  METHOD  |             API              |
+| :------: | :--------------------------: |
+|  `GET`   |       /api/v1/product        |
+|  `GET`   |     /api/v1/product/:id      |
+|  `GET`   | /api/v1/product/category/:id |
+|  `GET`   |  /api/v1/product/image/:id   |
+|  `GET`   |  /api/v1/product/detail/:id  |
+|  `GET`   |   /api/v1/product/popular    |
+| `DELETE` |     /api/v1/product/:id      |
 
-#### Address Endpoint
+- Address
 
-| METHOD |           API            |
-| :----: | :----------------------: |
-| `POST` |     /api/v1/address      |
-| `PUT`  |   /api/v1/address/:id    |
-| `GET`  | /api/v1/address/find-one |
-| `GET`  |     /api/v1/address/     |
+|  METHOD  |           API            |
+| :------: | :----------------------: |
+|  `GET`   |     /api/v1/address      |
+|  `GET`   | /api/v1/address/find-one |
+|  `POST`  |     /api/v1/address      |
+|  `PUT`   |   /api/v1/address/:id    |
+| `DELETE` |   /api/v1/address/:id    |
 
-#### Cart Endpoint
+- Cart
 
-| METHOD |        API         |
-| :----: | :----------------: |
-| `GET`  |   /api/v1/cart/    |
-| `GET`  | /api/v1/cart/count |
-| `POST` |   /api/v1/cart/    |
-| `DEL`  |   /api/v1/cart/    |
-| `PUT`  |  /api/v1/cart/:id  |
-| `POST` |   /api/v1/order/   |
-| `DEL`  | /api/v1/order/:id  |
-| `GET`  |   /api/v1/order/   |
-| `GET`  | /api/v1/order/:id  |
+|  METHOD  |        API         |
+| :------: | :----------------: |
+|  `GET`   |    /api/v1/cart    |
+|  `GET`   | /api/v1/cart/count |
+|  `POST`  |    /api/v1/cart    |
+|  `PUT`   |  /api/v1/cart/:id  |
+| `DELETE` |    /api/v1/cart    |
 
-#### Store/Brand Endpoint
+- Store/Brand
 
-| METHOD |               API               |
-| :----: | :-----------------------------: |
-| `GET`  |         /api/v1/store/          |
-| `GET`  |       /api/v1/cart/count        |
-| `GET`  | /api/v1/store/product?keyword=z |
-| `GET`  |       /api/v1/store/order       |
-| `GET`  |     /api/v1/store/order/:id     |
-| `GET`  |   /api/v1/store/product/sold    |
-| `GET`  |  /api/v1/store/product/archive  |
-| `PUT`  |         /api/v1/store/          |
-| `POST` |         /api/v1/store/          |
+| METHOD |              API              |
+| :----: | :---------------------------: |
+| `GET`  |         /api/v1/store         |
+| `GET`  |     /api/v1/store/product     |
+| `GET`  |  /api/v1/store/product/sold   |
+| `GET`  | /api/v1/store/product/archive |
+| `POST` |         /api/v1/store         |
+| `PUT`  |         /api/v1/store         |
+| `GET`  |      /api/v1/store/order      |
+| `GET`  |    /api/v1/store/order/:id    |
 
-#### How to Run
+- Order
 
-1. Clone the repository `git clone https://github.com/chaerulmarwan20/tuku-backend`
-2. Create database named `tuku` and import `tuku-aps.sql` from this repository
+|  METHOD  |        API        |
+| :------: | :---------------: |
+|  `GET`   |   /api/v1/order   |
+|  `GET`   | /api/v1/order/:id |
+|  `POST`  |   /api/v1/order   |
+| `DELETE` | /api/v1/order/:id |
+
+## Installation
+
+1. Open your terminal or command prompt. Then, clone the repository `git clone https://github.com/chaerulmarwan20/tuku-backend`
+2. Create database named `tuku-apps` and import `tuku-apps.sql` from this repository
 3. Go to directory `cd tuku-backend`
-4. Install all required dependencies `npm install`
+4. Install all required packages `npm install`
 5. Create a new file named `.env`, add it's content from `.env.example`
 6. Run server `npm run dev'
 
-#### VISIT PROJECT
+## Related Project
 
-- :white_check_mark: [Frontend](https://github.com/chaerulmarwan20/tuku-frontend)
-- :rocket: [Website](https://tukupedia.netlify.app/)
+- :white_check_mark: [`Frontend Tuku`](https://github.com/chaerulmarwan20/tuku-frontend)
+- :rocket: [`Production`](https://tukupedia.netlify.app/)

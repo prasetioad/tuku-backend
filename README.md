@@ -63,15 +63,17 @@ Tuku is an online buying and selling web application that makes it easy to use t
 
 - Product
 
-|  METHOD  |             API              |
-| :------: | :--------------------------: |
-|  `GET`   |       /api/v1/product        |
-|  `GET`   |     /api/v1/product/:id      |
-|  `GET`   | /api/v1/product/category/:id |
-|  `GET`   |  /api/v1/product/image/:id   |
-|  `GET`   |  /api/v1/product/detail/:id  |
-|  `GET`   |   /api/v1/product/popular    |
-| `DELETE` |     /api/v1/product/:id      |
+|  METHOD  |              API              |
+| :------: | :---------------------------: |
+|  `GET`   |        /api/v1/product        |
+|  `GET`   |      /api/v1/product/:id      |
+|  `GET`   | /api/v1/product/category/:id  |
+|  `GET`   |   /api/v1/product/image/:id   |
+|  `GET`   |  /api/v1/product/detail/:id   |
+|  `GET`   |    /api/v1/product/popular    |
+| `DELETE` |      /api/v1/product/:id      |
+|  `PUT`   |      /api/v1/product/:id      |
+|  `PUT`   | /api/v1/product/unarchive/:id |
 
 - Address
 

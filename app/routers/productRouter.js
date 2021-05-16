@@ -8,6 +8,8 @@ router
   .get("/category/:id", productController.findAllByCategory)
   .get("/image/:id", productController.findAllImageProduct)
   .get("/:id", productController.findOne)
-  .delete("/:id", productController.deleteProduct);
+  .delete("/:id", productController.deleteProduct)
+  .put("/:id", productController.archive)
+  .put("/unarchive/:id", productController.unarchive);
 
 module.exports = router;

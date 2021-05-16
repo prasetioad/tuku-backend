@@ -90,7 +90,7 @@ exports.getAllPopular = (queryPage, queryPerPage, sortBy, orderBy) => {
 exports.getProductById = (id) => {
   return new Promise((resolve, reject) => {
     connection.query(
-      "SELECT product.id, product.title, category.name AS category, product.idCategory, store.name AS brand, store.id AS idBrand, product.image, product.price, product.color, product.size, product.conditions, product.description, product.stock, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.id = ?",
+      "SELECT product.id, product.title, category.name AS category, product.idCategory, product.isArchived, store.name AS brand, store.id AS idBrand, product.image, product.price, product.color, product.size, product.conditions, product.description, product.stock, product.rating, product.isPopular FROM ((product INNER JOIN category ON product.idCategory = category.id) INNER JOIN store ON product.idStore = store.id) WHERE product.id = ?",
       id,
       (err, result) => {
         if (!err) {
@@ -166,5 +166,73 @@ exports.deleteProduct = (id) => {
         reject(new Error("Internal server error"));
       }
     });
+  });
+};
+
+exports.checkArchive = (id) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "SELECT isArchived FROM product WHERE id = ? AND isArchived = true",
+      id,
+      (err, result) => {
+        if (!err) {
+          resolve(result);
+        } else {
+          reject(new Error("Internal server error"));
+        }
+      }
+    );
+  });
+};
+
+exports.archive = (id) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "UPDATE product SET isArchived = true WHERE id = ?",
+      id,
+      (err, result) => {
+        if (!err) {
+          connection.query(
+            "SELECT * FROM product WHERE id = ?",
+            id,
+            (err, result) => {
+              if (!err) {
+                resolve(result);
+              } else {
+                reject(new Error("Internal server error"));
+              }
+            }
+          );
+        } else {
+          reject(new Error("Internal server error"));
+        }
+      }
+    );
+  });
+};
+
+exports.unarchive = (id) => {
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "UPDATE product SET isArchived = false WHERE id = ?",
+      id,
+      (err, result) => {
+        if (!err) {
+          connection.query(
+            "SELECT * FROM product WHERE id = ?",
+            id,
+            (err, result) => {
+              if (!err) {
+                resolve(result);
+              } else {
+                reject(new Error("Internal server error"));
+              }
+            }
+          );
+        } else {
+          reject(new Error("Internal server error"));
+        }
+      }
+    );
   });
 };

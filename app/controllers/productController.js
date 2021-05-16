@@ -167,6 +167,55 @@ exports.deleteProduct = async (req, res) => {
   }
 };
 
+exports.archive = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const archive = await productModel.checkArchive(id);
+    if (archive.length > 0) {
+      helper.printError(res, 400, "Produk telah diarsipkan");
+      return;
+    }
+  } catch (err) {
+    helper.printError(res, 500, err.message);
+    return;
+  }
+
+  productModel
+    .archive(id)
+    .then((result) => {
+      if (result < 1) {
+        helper.printError(res, 400, `Cannot archived product with id = ${id}`);
+        return;
+      }
+      helper.printSuccess(res, 200, "Your product has been archived", result);
+    })
+    .catch((err) => {
+      helper.printError(res, 500, err.message);
+    });
+};
+
+exports.unarchive = async (req, res) => {
+  const id = req.params.id;
+
+  productModel
+    .unarchive(id)
+    .then((result) => {
+      if (result < 1) {
+        helper.printError(
+          res,
+          400,
+          `Cannot unarchived product with id = ${id}`
+        );
+        return;
+      }
+      helper.printSuccess(res, 200, "Your product has been unarchived", result);
+    })
+    .catch((err) => {
+      helper.printError(res, 500, err.message);
+    });
+};
+
 const removeImage = (filePath) => {
   filePath = path.join(__dirname, "../..", filePath);
   fs.unlink(filePath, (err) => new Error(err));

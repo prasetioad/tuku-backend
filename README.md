@@ -9,9 +9,10 @@
 - [Features](#features)
 - [Built With](#built-with)
 - [Prerequisites](#prerequisites)
-- [Endpoint](#endpoint)
 - [Installation](#installation)
-- [Related Project](#related-project)
+- [Documentation](#documentation)
+- [Link](#link)
+- [Authors](#authors)
 
 ## Introduction
 
@@ -49,92 +50,70 @@ Tuku is an online buying and selling web application that makes it easy to use t
 - [NodeJs](https://nodejs.org/en/download/)
 - [XAMPP](https://www.apachefriends.org/index.html)
 
-## Endpoint
-
-- User
-
-| METHOD |              API              |
-| :----: | :---------------------------: |
-| `GET`  |    /api/v1/users/find-one     |
-| `POST` |         /api/v1/users         |
-| `GET`  |   /api/v1/users/auth/verify   |
-| `POST` |      /api/v1/users/login      |
-| `POST` | /api/v1/users/forgot-password |
-| `PUT`  | /api/v1/users/reset-password  |
-| `PUT`  |       /api/v1/users/:id       |
-
-- Category
-
-| METHOD |       API        |
-| :----: | :--------------: |
-| `GET`  | /api/v1/category |
-
-- Product
-
-|  METHOD  |              API              |
-| :------: | :---------------------------: |
-|  `GET`   |        /api/v1/product        |
-|  `GET`   |      /api/v1/product/:id      |
-|  `GET`   | /api/v1/product/category/:id  |
-|  `GET`   |   /api/v1/product/image/:id   |
-|  `GET`   |  /api/v1/product/detail/:id   |
-|  `GET`   |    /api/v1/product/popular    |
-| `DELETE` |      /api/v1/product/:id      |
-|  `PUT`   |      /api/v1/product/:id      |
-|  `PUT`   | /api/v1/product/unarchive/:id |
-
-- Address
-
-|  METHOD  |           API            |
-| :------: | :----------------------: |
-|  `GET`   |     /api/v1/address      |
-|  `GET`   | /api/v1/address/find-one |
-|  `POST`  |     /api/v1/address      |
-|  `PUT`   |   /api/v1/address/:id    |
-| `DELETE` |   /api/v1/address/:id    |
-
-- Cart
-
-|  METHOD  |        API         |
-| :------: | :----------------: |
-|  `GET`   |    /api/v1/cart    |
-|  `GET`   | /api/v1/cart/count |
-|  `POST`  |    /api/v1/cart    |
-|  `PUT`   |  /api/v1/cart/:id  |
-| `DELETE` |    /api/v1/cart    |
-
-- Store/Brand
-
-| METHOD |              API              |
-| :----: | :---------------------------: |
-| `GET`  |         /api/v1/store         |
-| `GET`  |     /api/v1/store/product     |
-| `GET`  |  /api/v1/store/product/sold   |
-| `GET`  | /api/v1/store/product/archive |
-| `POST` |         /api/v1/store         |
-| `PUT`  |         /api/v1/store         |
-| `GET`  |      /api/v1/store/order      |
-| `GET`  |    /api/v1/store/order/:id    |
-
-- Order
-
-|  METHOD  |        API        |
-| :------: | :---------------: |
-|  `GET`   |   /api/v1/order   |
-|  `GET`   | /api/v1/order/:id |
-|  `POST`  |   /api/v1/order   |
-| `DELETE` | /api/v1/order/:id |
-
 ## Installation
 
-1. Open your terminal or command prompt. Then, clone the repository `git clone https://github.com/chaerulmarwan20/tuku-backend`
-2. Create database named `tuku-apps` and import `tuku-apps.sql` from this repository
-3. Go to directory `cd tuku-backend`
-4. Install all required packages `npm install`
-5. Create a new file named `.env`, add it's content from `.env.example`
-6. Run server `npm run dev` or `npm start`
+1. Clone the repository
 
-## Related Project
+```
+git clone https://github.com/chaerulmarwan20/tuku-backend
+cd tuku-backend
+```
+
+2. Install package
+
+```
+npm install
+```
+
+3. Create a new database with a name `tuku-apps` and import `tuku-apps.sql` from this repository
+
+4. Create .env file
+
+```
+# Host & Port
+HOST=
+PORT=
+PORT_FRONTEND=
+
+# Database
+DB_HOST=
+DB_USER=
+DB_PASS=
+DB_NAME=tuku-apps
+
+# Secret Key
+SECRET_KEY=
+
+# Email
+EMAIL_USER=
+EMAIL_PASS=
+```
+
+5. Run application
+
+```
+npm run dev
+```
+
+Or
+
+```
+npm start
+```
+
+## Documentation
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/11970262/TzRPi8hX)
+
+## Link
 
 - :white_check_mark: [`Frontend Tuku`](https://github.com/chaerulmarwan20/tuku-frontend)
-- :rocket: [`Production`](https://tukupedia.netlify.app/)
+- :rocket: [`Publication`](https://tukupedia.netlify.app/)
+
+## Authors
+
+1. [Wisnu Prasetio](https://github.com/prasetioad) - Frontend - PM
+2. [Chaerul Marwan](https://github.com/chaerulmarwan20) - Full Stack - Member
+3. [Herza Paramayudhanto](https://github.com/herzaparam) - Backend - Member
+4. [Erwin Saputra Sulistio](https://github.com/ErwinSaputraSulistio) - Frontend - Member
+5. [Kevin Farid Alpharisy](https://github.com/kevinfaridap) - Frontend - Member

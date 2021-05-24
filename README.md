@@ -107,7 +107,7 @@ npm start
 
 ## Link
 
-- :white_check_mark: [`Frontend Tuku`](https://github.com/chaerulmarwan20/tuku-frontend)
+- :white_check_mark: [`Frontend Tuku`](https://github.com/ErwinSaputraSulistio/Blanja-FE)
 - :rocket: [`Publication`](https://tukupedia.netlify.app/)
 
 ## Authors
